@@ -1,0 +1,299 @@
+// Variables de Color basadas en el Flyer Corporativo
+$azul-industrial: #0b2240; 
+$naranja-industrial: #f15a24;
+$slate-dark: #0f172a;
+$slate-light: #f8fafc;
+$text-dark: #1e293b;
+$text-muted: #64748b;
+$white: #ffffff;
+
+.home-container {
+  width: 100%;
+  overflow-x: hidden; // Previene el scroll horizontal fantasma en móviles
+  background-color: $slate-light;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+// 1. ESTILOS HERO
+.hero-section {
+  position: relative;
+  background-color: $slate-dark;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  padding: 5rem 1.5rem;
+  color: $white;
+
+  .hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; // Hace que cubra todo el espacio sin deformarse
+    z-index: 0;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba($slate-dark, 0.95) 30%, rgba($slate-dark, 0.6) 100%);
+    z-index: 1;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+
+    @media (min-width: 768px) {
+      margin-left: 10%;
+    }
+  }
+
+  .brand-badge {
+    color: $naranja-industrial;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    font-size: 0.875rem;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+
+    @media (min-width: 768px) {
+      font-size: 4rem;
+    }
+
+    .highlight {
+      color: $naranja-industrial;
+    }
+  }
+
+  .hero-description {
+    font-size: 1.125rem;
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    max-width: 650px;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    a {
+      padding: 1rem 2rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary {
+      background-color: $naranja-industrial;
+      color: $white;
+      &:hover {
+        background-color: darken($naranja-industrial, 10%);
+      }
+    }
+
+    .btn-secondary {
+      background-color: rgba($white, 0.1);
+      color: $white;
+      border: 1px border rgba($white, 0.2);
+      &:hover {
+        background-color: rgba($white, 0.2);
+      }
+    }
+  }
+}
+
+// 2. ESTILOS VENTAJAS / PILARES
+.ventajas-section {
+  padding: 6rem 1.5rem;
+  max-width: 1280px;
+  margin: 0 auto;
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+
+    .section-subtitle {
+      color: $naranja-industrial;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.875rem;
+      letter-spacing: 0.1em;
+    }
+
+    .section-title {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: $text-dark;
+      margin: 0.5rem 0 1rem;
+      
+      .highlight {
+        color: $naranja-industrial;
+      }
+    }
+
+    .section-description {
+      color: $text-muted;
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.125rem;
+    }
+  }
+
+  .ventajas-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+
+    @media (min-width: 640px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .ventaja-card {
+    background-color: $white;
+    padding: 2.5rem 2rem;
+    border-radius: 1rem;
+    border: 1px solid #f1f5f9;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    }
+
+    .icon-wrapper {
+      background-color: #fff7ed;
+      padding: 1rem;
+      border-radius: 0.75rem;
+      width: fit-content;
+      margin-bottom: 1.5rem;
+      
+      .icon {
+        color: $naranja-industrial;
+      }
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: $text-dark;
+      margin-bottom: 0.75rem;
+    }
+
+    .card-description {
+      color: $text-muted;
+      font-size: 0.875rem;
+      line-height: 1.6;
+    }
+  }
+}
+
+// 3. ESTILOS SECCIÓN CONTACTO
+.contact-section {
+  background-color: $azul-industrial;
+  padding: 6rem 1.5rem;
+  color: $white;
+
+  .section-header-dark {
+    text-align: center;
+    margin-bottom: 4rem;
+
+    h2 {
+      font-size: 2.25rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      span { color: $naranja-industrial; }
+    }
+    p {
+      color: #94a3b8;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+  }
+
+  .contact-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+    }
+  }
+
+  .contact-card {
+    background-color: rgba($white, 0.03);
+    border: 1px solid rgba($white, 0.08);
+    padding: 2rem;
+    border-radius: 1rem;
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-decoration: none;
+    color: $white;
+    transition: border-color 0.3s ease;
+
+    .card-icon {
+      color: $naranja-industrial;
+      margin-bottom: 1rem;
+      width: 2rem;
+      height: 2rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 0.875rem;
+      color: #94a3b8;
+      line-height: 1.5;
+    }
+
+    .phone-number {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: $naranja-industrial;
+      margin: 0.25rem 0;
+    }
+
+    .hint {
+      font-size: 0.75rem;
+      color: #64748b;
+    }
+
+    &.link-card:hover {
+      border-color: rgba($naranja-industrial, 0.5);
+    }
+  }
+}

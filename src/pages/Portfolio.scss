@@ -1,0 +1,158 @@
+.portfolio-page {
+  // Variables locales de La Industrial S.A.C.
+  $primary: #0b2240; 
+  $secondary: #f15a24; 
+  $text-muted: #667085;
+  $bg-light: #f8fafc;
+
+  background-color: $bg-light;
+  font-family: system-ui, -apple-system, sans-serif;
+
+  /* --- ESTILOS DEL HERO --- */
+  .portfolio-hero {
+    position: relative;
+    padding: 7rem 0 5rem; // Altura optimizada para no ocupar toda la pantalla
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+
+    &__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(11, 34, 64, 0.95) 0%, rgba(11, 34, 64, 0.7) 100%);
+      z-index: 1;
+    }
+
+    .relative-z {
+      position: relative;
+      z-index: 2; 
+      padding: 0 1.5rem; 
+    }
+
+    .overline {
+      display: block;
+      color: $secondary;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+      line-height: 1.1; 
+      font-weight: 900;
+      
+      .highlight { color: $secondary; }
+    }
+
+    p {
+      font-size: clamp(1rem, 3vw, 1.2rem); 
+      color: rgba(255, 255, 255, 0.85);
+      max-width: 650px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+  }
+
+  /* --- CSS DE LA GALERÍA CON CORRECCIONES MOBILE --- */
+  .gallery-section {
+    padding: 5rem 0;
+
+    .container {
+      max-width: 1250px;
+      margin: 0 auto;
+      padding: 0 1.5rem; 
+    }
+
+    .filter-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 4rem;
+
+      button {
+        background: transparent;
+        border: 2px solid #E5E7EB;
+        color: $text-muted;
+        padding: 0.6rem 1.5rem;
+        border-radius: 50px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease; 
+
+        &:hover, &.active {
+          background: $primary;
+          color: #fff;
+          border-color: $primary;
+        }
+      }
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+
+      .gallery-item {
+        position: relative;
+        height: 300px;
+        border-radius: 8px;
+        overflow: hidden;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.6s ease;
+        }
+
+        .overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(to top, rgba(11, 34, 64, 0.95) 0%, rgba(11, 34, 64, 0.1) 100%);
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          padding: 2rem;
+          opacity: 0;
+          transform: translateY(20px);
+          transition: all 0.4s ease;
+
+          .tag {
+            color: $secondary; // Naranja institucional
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+          }
+
+          h3 {
+            color: #fff;
+            font-size: 1.4rem;
+            margin: 0;
+            font-weight: 700;
+            line-height: 1.3;
+          }
+        }
+
+        &:hover {
+          img { transform: scale(1.1); }
+          .overlay {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      }
+    }
+  }
+}
