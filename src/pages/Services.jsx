@@ -34,7 +34,7 @@ const Services = () => {
               
               <div className="catalog-card">
                 <div className="card-img-wrap">
-                  <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80" alt="Carrocerías Metálicas Robustas" />
+                  <img src="/carrocerias-metálicas.jpeg" alt="Car rocerías Metálicas Robustas" />
                 </div>
                 <div className="card-content">
                   <h3>Carrocerías Metálicas</h3>
@@ -44,7 +44,7 @@ const Services = () => {
 
               <div className="catalog-card">
                 <div className="card-img-wrap">
-                  <img src="https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=800&q=80" alt="Carrocerías de Madera Seleccionada" />
+                  <img src="/baranda-madera-panagra-peru.jpeg" alt="Carrocerías de Madera Seleccionada" />
                 </div>
                 <div className="card-content">
                   <h3>Carrocerías en Madera</h3>
@@ -54,7 +54,7 @@ const Services = () => {
 
               <div className="catalog-card">
                 <div className="card-img-wrap">
-                  <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=800&q=80" alt="Diseño Estructural Personalizado" />
+                  <img src="/diseño-carga-industrial.jpg" alt="Diseño Estructural Personalizado" />
                 </div>
                 <div className="card-content">
                   <h3>Diseño y Cálculo a Medida</h3>
@@ -64,7 +64,7 @@ const Services = () => {
 
               <div className="catalog-card">
                 <div className="card-img-wrap">
-                  <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80" alt="Soluciones para Carga Pesada" />
+                  <img src="/Diseño-calculo-medida.jpeg" alt="Soluciones para Carga Pesada" />
                 </div>
                 <div className="card-content">
                   <h3>Unidades Especializadas</h3>

@@ -51,7 +51,7 @@ const Home = () => {
             Especialistas en transporte pesado. Diseñamos y construimos estructuras resistentes, duraderas y a medida para optimizar tus operaciones de carga general.
           </p>
           <div className="hero-actions">
-            <Link to="/portfolio" className="btn-primary">
+            <Link to="/proyectos" className="btn-primary">
               Ver Proyectos <ArrowRight size={18} />
             </Link>
             <a href="https://wa.me/51932528794" target="_blank" rel="noopener noreferrer" className="btn-secondary">

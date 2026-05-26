@@ -1,0 +1,240 @@
+// Variables base de La Industrial
+$primary-color: #0b397d; 
+$accent-color: #ff6b00; 
+$text-dark: #222222;
+$text-light: #666666;
+$bg-light: #f9f9f9;
+$border-color: #eaeaea;
+$whatsapp-green: #25d366;
+
+.project-detail-container {
+  padding: 40px 0;
+  background-color: #ffffff;
+  color: $text-dark;
+  font-family: Arial, sans-serif;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  // Botón de regreso
+  .back-link {
+    background: none;
+    border: none;
+    color: $primary-color;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px 0;
+    margin-bottom: 25px;
+    transition: transform 0.2s ease;
+    &:hover { transform: translateX(-5px); }
+  }
+
+  // Layout principal
+  .detail-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr; 
+    gap: 40px;
+    align-items: start;
+
+    @media (max-width: 992px) {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
+
+  // --- Columna Izquierda: Galería ---
+.detail-media {
+    h2 {
+      font-size: 1.3rem;
+      color: $text-dark;
+      margin: 0 0 20px 0;
+      text-transform: uppercase;
+    }
+
+    .products-photos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 15px;
+
+      .product-photo-item {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        border: 1px solid $border-color;
+        // height: 180px; // <-- ESTO SE QUITA O CAMBIA
+        height: auto; // <-- ESTO SE AGREGA para que el contenedor se adapte
+
+        img {
+          width: 100%;
+          // height: 100%; // <-- ESTO SE QUITA O CAMBIA
+          height: auto; // <-- ESTO SE AGREGA para que la imagen se adapte
+          object-fit: contain; // <-- ESTO ES EL CAMBIO CLAVE para mostrar completa sin recortar (era cover)
+          object-position: center; // Centrar la imagen si hay espacios vacíos
+          display: block;
+          transition: transform 0.3s ease;
+          cursor: zoom-in;
+          
+          &:hover { transform: scale(1.04); }
+        }
+      }
+    }
+
+    .no-images-box {
+      padding: 40px;
+      background-color: $bg-light;
+      border-radius: 8px;
+      text-align: center;
+      color: $text-light;
+      border: 1px dashed $border-color;
+    }
+  }
+
+  // --- Columna Derecha: Información Técnica ---
+  .detail-info {
+    position: sticky; 
+    top: 100px; // Mantiene el bloque informativo fijo al hacer scroll
+    height: max-content; // Necesario para que el sticky funcione bien
+
+    .badge {
+      display: inline-block;
+      background-color: rgba($primary-color, 0.1);
+      color: $primary-color;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin: 0 0 20px 0;
+      color: $text-dark;
+      line-height: 1.2;
+    }
+
+    .divider {
+      height: 2px;
+      background-color: $border-color;
+      margin-bottom: 25px;
+    }
+
+    h2 {
+      font-size: 1.15rem;
+      color: $primary-color;
+      margin: 0 0 12px 0;
+      text-transform: uppercase;
+    }
+
+    .long-description {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: $text-light;
+      margin-bottom: 30px;
+    }
+
+    .specs-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 35px 0;
+      
+      li {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: flex-start;
+        
+        .bullet { 
+          color: $primary-color; 
+          margin-right: 10px; 
+          font-weight: bold; 
+        }
+      }
+    }
+
+    .cta-box {
+      background-color: $bg-light;
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 4px solid $primary-color;
+      
+      p { 
+        margin: 0 0 15px 0; 
+        font-weight: bold; 
+        font-size: 0.95rem; 
+      }
+      
+      .whatsapp-btn {
+        display: inline-block;
+        background-color: $whatsapp-green;
+        color: #ffffff;
+        text-decoration: none;
+        padding: 12px 20px;
+        border-radius: 6px;
+        font-weight: bold;
+        font-size: 0.95rem;
+        transition: background-color 0.2s ease;
+        
+        &:hover { background-color: darken($whatsapp-green, 5%); }
+      }
+    }
+  }
+}
+
+/* --- ESTILOS DEL LIGHTBOX (MODAL EMERGENTE DE IMAGEN) --- */
+.lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.85); // Fondo oscuro
+  z-index: 9999; // Se superpone a todo el sitio
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: zoom-out; // Cursor indicando que al hacer clic se cierra
+  backdrop-filter: blur(5px); // Difumina el fondo
+
+  .lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #ffffff;
+    font-size: 45px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $accent-color;
+    }
+  }
+
+  .lightbox-image {
+    max-width: 90vw;
+    max-height: 90vh; 
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    object-fit: contain; // Mantiene la foto sin cortes
+    animation: zoomIn 0.3s ease; // Animación de entrada fluida
+  }
+}
+
+// Keyframes para la animación del modal
+@keyframes zoomIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
