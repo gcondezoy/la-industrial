@@ -47,7 +47,9 @@ const Footer = () => {
           <div className="footer__social">
             <h3>Síguenos</h3>
             <div className="social-links">
-              
+              <a href="https://www.tiktok.com/@la.industrial.sac" target="_blank" rel="noopener noreferrer" className="social-icon tiktok">
+                <FaTiktok />
+              </a>
               <a href="https://www.facebook.com/LaIndustrialEIRL" target="_blank" rel="noopener noreferrer" className="social-icon facebook">
                 <FaFacebookF />
               </a>
