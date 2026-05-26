@@ -18,7 +18,7 @@ const About = () => {
                 <span className="highlight">transporte pesado</span>
               </h1>
               <p>
-                En La Industrial S.A.C. nos dedicamos a la fabricación de carrocerías en metal y madera. Diseñamos soluciones robustas a medida para optimizar tus operaciones de carga general y transporte especializado en todo el país.
+                En La Industrial S.A.C. nos dedicamos a la fabricación de carrocerías en metal y madera. Con más de 40 años en el rubro que garantizan la calidad y resistencia de nuestro trabajo, diseñamos soluciones robustas a medida para optimizar tus operaciones de carga general y transporte especializado en todo el país.
               </p>
             </div>
             

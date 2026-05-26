@@ -37,18 +37,19 @@ const Home = () => {
       {/* 1. SECCIÓN HERO */}
       <section className="hero-section">
         <img 
-    src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1920&q=80" 
-    alt="Taller industrial y carrocerías" 
-    className="hero-background" 
-  />
+          src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1920&q=80" 
+          alt="Taller industrial y carrocerías" 
+          className="hero-background" 
+        />
         <div className="hero-overlay"></div>
         <div className="hero-content">
           <span className="brand-badge">LA INDUSTRIAL S.A.C.</span>
           <h1 className="hero-title">
             Fabricación de Carrocerías en <span className="highlight">Metal y Madera</span>
           </h1>
+          {/* TEXTO DE TRAYECTORIA INTEGRADO AQUÍ */}
           <p className="hero-description">
-            Especialistas en transporte pesado. Diseñamos y construimos estructuras resistentes, duraderas y a medida para optimizar tus operaciones de carga general.
+            En La Industrial S.A.C. nos dedicamos a la fabricación de carrocerías en metal y madera. Con más de 40 años en el rubro que garantizan la calidad y resistencia de nuestro trabajo, diseñamos soluciones robustas a medida para optimizar tus operaciones de carga general y transporte especializado en todo el país.
           </p>
           <div className="hero-actions">
             <Link to="/proyectos" className="btn-primary">
@@ -61,7 +62,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 2. SECCIÓN VENTAJAS (PILARS DEL FLYER) */}
+      {/* 2. SECCIÓN VENTAJAS */}
       <section className="ventajas-section">
         <div className="section-header">
           <span className="section-subtitle">Nuestra Propuesta</span>
@@ -92,11 +93,19 @@ const Home = () => {
         </div>
 
         <div className="contact-grid">
-          <div className="contact-card border-only">
+          {/* TARJETA DE UBICACIÓN TRANSFORMADA EN ENLACE A MAPS */}
+          <a 
+            href="https://www.google.com/maps/place/11%C2%B053'52.2%22S+77%C2%B004'00.8%22W" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="contact-card link-card"
+            style={{ textDecoration: 'none', color: 'inherit' }}
+          >
             <MapPin className="card-icon" />
             <h3>Sede de Operaciones</h3>
-            <p>Planta de diseño y fabricación metalmecánica especializada en Lima, Perú.</p>
-          </div>
+            <span className="phone-number" style={{ fontSize: '1.5rem' }}>Lima, Perú</span>
+            <p className="hint">Planta de diseño y fabricación metalmecánica especializada.</p>
+          </a>
 
           <a href="https://wa.me/51932528794" target="_blank" rel="noopener noreferrer" className="contact-card link-card">
             <Phone className="card-icon" />
