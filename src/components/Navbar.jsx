@@ -35,7 +35,7 @@ const Navbar = () => {
       <div className="container">
         
         <Link to="/" className="nav-logo">
-          <img src="/logo.png" alt="Servicios Moroni SRL" />
+          <img src="/logo.webp" alt="Servicios Moroni SRL" />
         </Link>
 
         <div className="menu-toggle" onClick={toggleMenu}>

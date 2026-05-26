@@ -15,8 +15,8 @@ const Footer = () => {
           {/* Columna 1: Marca */}
           <div className="footer__brand">
             <div className="footer-logo">
-              {/* Asegúrate de que logo.png esté en tu carpeta public/ */}
-              <img src="/logo.png" alt="La Industrial S.A.C. Logo" />
+              {/* Asegúrate de que logo.webp esté en tu carpeta public/ */}
+              <img src="/logo.webp" alt="La Industrial S.A.C. Logo" />
             </div>
             <p>Especialistas en la fabricación de carrocerías en metal y madera, estructuras robustas y soluciones integrales para el transporte pesado a nivel nacional.</p>
           </div>

@@ -34,7 +34,7 @@ const Services = () => {
               
               <div className="catalog-card">
                 <div className="card-img-wrap">
-                  <img src="/carrocerias-metálicas.jpeg" alt="Car rocerías Metálicas Robustas" />
+                  <img src="/carrocerias-metálicas.webp" alt="Car rocerías Metálicas Robustas" />
                 </div>
                 <div className="card-content">
                   <h3>Carrocerías Metálicas</h3>
@@ -44,7 +44,7 @@ const Services = () => {
 
               <div className="catalog-card">
                 <div className="card-img-wrap">
-                  <img src="/baranda-madera-panagra-peru.jpeg" alt="Carrocerías de Madera Seleccionada" />
+                  <img src="/baranda-madera-panagra-peru.webp" alt="Carrocerías de Madera Seleccionada" />
                 </div>
                 <div className="card-content">
                   <h3>Carrocerías en Madera</h3>
@@ -54,7 +54,7 @@ const Services = () => {
 
               <div className="catalog-card">
                 <div className="card-img-wrap">
-                  <img src="/diseño-carga-industrial.jpeg" alt="Diseño Estructural Personalizado" />
+                  <img src="/diseño-carga-industrial.webp" alt="Diseño Estructural Personalizado" />
                 </div>
                 <div className="card-content">
                   <h3>Diseño y Cálculo a Medida</h3>
@@ -64,7 +64,7 @@ const Services = () => {
 
               <div className="catalog-card">
                 <div className="card-img-wrap">
-                  <img src="/Diseño-calculo-medida.jpeg" alt="Soluciones para Carga Pesada" />
+                  <img src="/Diseño-calculo-medida.webp" alt="Soluciones para Carga Pesada" />
                 </div>
                 <div className="card-content">
                   <h3>Unidades Especializadas</h3>
@@ -82,7 +82,7 @@ const Services = () => {
               
               <div className="catalog-card">
                 <div className="card-img-wrap">
-                  <img src="/chasis-camion-azul-sin-carroceria.jpeg" alt="Servicio de Arenado e Imprimación" />
+                  <img src="/chasis-camion-azul-sin-carroceria.webp" alt="Servicio de Arenado e Imprimación" />
                 </div>
                 <div className="card-content">
                   <h3>Arenado Profesional (Sandblasting)</h3>
@@ -92,7 +92,7 @@ const Services = () => {
 
               <div className="catalog-card">
                 <div className="card-img-wrap">
-                  <img src="/baranda-madera-aerografia-personalizada.jpeg" alt="Pintura Epóxica Industrial" />
+                  <img src="/baranda-madera-aerografia-personalizada.webp" alt="Pintura Epóxica Industrial" />
                 </div>
                 <div className="card-content">
                   <h3>Recubrimiento Epóxico y Acabados</h3>
@@ -110,7 +110,7 @@ const Services = () => {
               
               <div className="catalog-card">
                 <div className="card-img-wrap">
-                  <img src="/plataforma-carga-pesada-metalica.jpeg" alt="Mantenimiento Estructural Correctivo" />
+                  <img src="/plataforma-carga-pesada-metalica.webp" alt="Mantenimiento Estructural Correctivo" />
                 </div>
                 <div className="card-content">
                   <h3>Reparación de Carrocerías</h3>
@@ -120,7 +120,7 @@ const Services = () => {
 
               <div className="catalog-card">
                 <div className="card-img-wrap">
-                  <img src="/tolva-estructural-volteo-azul.jpeg" alt="Reforzamiento de Componentes Críticos" />
+                  <img src="/tolva-estructural-volteo-azul.webp" alt="Reforzamiento de Componentes Críticos" />
                 </div>
                 <div className="card-content">
                   <h3>Reforzamiento Estructural</h3>
@@ -130,7 +130,7 @@ const Services = () => {
 
               <div className="catalog-card">
                 <div className="card-img-wrap">
-                  <img src="/baranda-metalica-abierta-utilitario.jpeg" alt="Asesoría Técnica de Flotas" />
+                  <img src="/baranda-metalica-abierta-utilitario.webp" alt="Asesoría Técnica de Flotas" />
                 </div>
                 <div className="card-content">
                   <h3>Evaluación y Diagnóstico Técnico</h3>

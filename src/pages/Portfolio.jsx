@@ -36,7 +36,7 @@ const Portfolio = () => {
         <div className="projects-grid">
           {filteredLines.map((line) => {
             // Usamos la primera imagen de la galería como portada, si no hay ponemos un placeholder limpio
-            const coverImage = line.images.length > 0 ? line.images[0] : '/placeholder-camion.jpg';
+            const coverImage = line.images.length > 0 ? line.images[0] : '/placeholder-camion.webp';
             
             return (
               <Link 

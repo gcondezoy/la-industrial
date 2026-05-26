@@ -9,27 +9,27 @@ export const productLines = [
     desc: 'Carrocerías abiertas de madera selecta o metal para carga general.',
     longDesc: 'Fabricamos barandas comerciales, teleras y artísticas adaptadas a cualquier chasis. Estructuras rígidas que combinan la flexibilidad de la madera tratada con parantes y bases de acero estructural, forradas opcionalmente en panagra para rotulación corporativa o trabajos de aerografía premium.',
     images: [
-      '/baranda-artistica-aerografia-compleja.jpeg',
-      '/baranda-artistica-caballo.jpeg',
-      '/baranda-artistica-caballo (2).jpeg',
-      '/baranda-bicolor-con-canastilla.jpeg',
-      '/baranda-blanca-sin-panagra.jpeg',
-      '/baranda-comercial-blanca-canastilla.jpeg',
-      '/baranda-comercial-panagra-roja.jpeg',
-      '/baranda-con-canastilla-ligera.jpeg',
-      '/baranda-madera-aerografia-personalizada.jpeg',
-      '/baranda-madera-con-canastilla.jpeg',
-      '/baranda-madera-expuesta-towner.jpeg',
-      '/baranda-madera-panagra-peru.jpeg',
-      '/baranda-madera-pintura-fenix.jpeg',
-      '/baranda-metalica-abierta-utilitario.jpeg',
-      '/baranda-metalica-alta-canastilla.jpeg',
-      '/baranda-panagra-fija-isuzu.jpeg',
-      '/baranda-panagra-fija-roja.jpeg',
-      '/baranda-panagra-verde-isuzu.jpeg',
-      '/baranda-panagra-verde-leon.jpeg',
+      '/baranda-artistica-aerografia-compleja.webp',
+      '/baranda-artistica-caballo.webp',
+      '/baranda-artistica-caballo (2).webp',
+      '/baranda-bicolor-con-canastilla.webp',
+      '/baranda-blanca-sin-panagra.webp',
+      '/baranda-comercial-blanca-canastilla.webp',
+      '/baranda-comercial-panagra-roja.webp',
+      '/baranda-con-canastilla-ligera.webp',
+      '/baranda-madera-aerografia-personalizada.webp',
+      '/baranda-madera-con-canastilla.webp',
+      '/baranda-madera-expuesta-towner.webp',
+      '/baranda-madera-panagra-peru.webp',
+      '/baranda-madera-pintura-fenix.webp',
+      '/baranda-metalica-abierta-utilitario.webp',
+      '/baranda-metalica-alta-canastilla.webp',
+      '/baranda-panagra-fija-isuzu.webp',
+      '/baranda-panagra-fija-roja.webp',
+      '/baranda-panagra-verde-isuzu.webp',
+      '/baranda-panagra-verde-leon.webp',
       
-      '/transporte-personal-bicolor.jpeg'
+      '/transporte-personal-bicolor.webp'
     ],
     specs: [
       'Estructura base en acero de alta resistencia (LAF / LAC)',
@@ -46,18 +46,18 @@ export const productLines = [
     desc: 'Carrocerías cerradas herméticas para protección total de mercancías.',
     longDesc: 'Diseño y fabricación de furgones metálicos para distribución logística urbana e interprovincial. Estructuras totalmente selladas que garantizan la seguridad de la carga contra la intemperie y robos, optimizados con deflectores de aire para reducir el consumo de combustible.',
     images: [
-      '/carrocerias-metálicas.jpeg',
-      '/furgon-cerrado-hd-isuzu-fvr.jpeg',
-      '/furgon-cerrado-madezza.jpeg',
-      '/furgon-cerrado-rampa-elevadora.jpeg',
-      '/furgon-comercial-metalico-ligero.jpeg',
-      '/furgon-con-cortaviento-aerodinamico.jpeg',
+      '/carrocerias-metálicas.webp',
+      '/furgon-cerrado-hd-isuzu-fvr.webp',
+      '/furgon-cerrado-madezza.webp',
+      '/furgon-cerrado-rampa-elevadora.webp',
+      '/furgon-comercial-metalico-ligero.webp',
+      '/furgon-con-cortaviento-aerodinamico.webp',
      
-      '/furgon-con-rampa-hidraulica-azul.jpeg',
-      '/furgon-cortaviento-plataforma-hidraulica.jpeg',
-      '/furgon-heavy-duty-isuzu.jpeg',
-      '/furgon-logistico-cat.jpeg',
-      '/furgon-sin-panagra-heavy-duty.jpeg'
+      '/furgon-con-rampa-hidraulica-azul.webp',
+      '/furgon-cortaviento-plataforma-hidraulica.webp',
+      '/furgon-heavy-duty-isuzu.webp',
+      '/furgon-logistico-cat.webp',
+      '/furgon-sin-panagra-heavy-duty.webp'
     ],
     specs: [
       'Paredes en planchas metálicas lisas o corrugadas',
@@ -74,10 +74,10 @@ export const productLines = [
     desc: 'Carrocerías con enrejado metálico optimizadas para transporte de aves.',
     longDesc: 'Estructuras ventiladas fabricadas especialmente para el sector avícola. Diseñadas para maximizar la capacidad de alojamiento de jabas de aves vivas, asegurando un flujo de aire constante para reducir la mortalidad en trayecto, combinando laterales de malla con cerramientos rígidos de seguridad.',
     images: [
-      '/baranda-avicola-herlinda.jpeg',
-      '/carroceria-pollero-semirremolque-roja.jpeg',
-      '/carroceria-pollero-sobre-chasis.jpeg',
-      '/furgon-comercial-avicola (2).jpeg'
+      '/baranda-avicola-herlinda.webp',
+      '/carroceria-pollero-semirremolque-roja.webp',
+      '/carroceria-pollero-sobre-chasis.webp',
+      '/furgon-comercial-avicola (2).webp'
     ],
     specs: [
       'Laterales en malla metálica electrosoldada de alta resistencia',
@@ -93,9 +93,9 @@ export const productLines = [
     desc: 'Tolvas estructurales con sistemas hidráulicos para carga pesada.',
     longDesc: 'Diseño de tolvas de volteo heavy duty para camiones de dos y tres ejes (tándem posterior). Construidas íntegramente con aceros de alta resistencia a la abrasión e impactos, ideales para el movimiento de tierras, agregados, minería y construcción civil.',
     images: [
-      '/olva-volteo-amarillo-negro.jpeg',
-      '/olva-volteo-amarillo-negro (2).jpeg',
-      '/tolva-estructural-volteo-azul.jpeg'
+      '/olva-volteo-amarillo-negro.webp',
+      '/olva-volteo-amarillo-negro (2).webp',
+      '/tolva-estructural-volteo-azul.webp'
     ],
     specs: [
       'Fabricación en planchas de acero estructural de alto límite elástico',
@@ -143,7 +143,7 @@ export const productLines = [
     desc: 'Estructuras rodantes de múltiples ejes para carga pesada y contenedores.',
     longDesc: 'Semirremolques diseñados para el transporte de contenedores estandarizados de 20 y 40 pies, así como carga general sobredimensionada. Equipados con vigas principales robustas para soportar altas toneladas en carreteras nacionales.',
     images: [
-      '/plataforma-carga-pesada-metalica.jpeg'
+      '/plataforma-carga-pesada-metalica.webp'
     ],
     specs: [
       'Vigas principales en perfil "I" de acero estructural de alta resistencia',
@@ -195,7 +195,7 @@ export const productLines = [
     desc: 'Sistemas de apertura lateral hidráulica para carga y descarga express.',
     longDesc: 'Modificación técnica avanzada de furgones donde las paredes laterales se elevan por completo de manera vertical mediante pistones hidráulicos. Ideal para operaciones logísticas masivas que requieren acceso inmediato a palets.',
     images: [
-      'public/camion-mercedes-benz-carroceria-ala-gaviota..jpeg',
+      'public/camion-mercedes-benz-carroceria-ala-gaviota..webp',
       
     ],
     specs: [
@@ -212,9 +212,9 @@ export const productLines = [
     desc: 'Transformación integral de vehículos para atención médica y misiones especiales.',
     longDesc: 'Acondicionamiento interno y externo de furgonetas o módulos sobre chasis para cumplir estrictamente con las normas de salud vigentes. Distribución ergonómica para el traslado y atención médica de pacientes.',
     images: [
-      '/ambulancia-la industrial.jpeg',
-      '/ambulancia-laindustrial.jpeg',
-      '/ambulancia.jpeg',
+      '/ambulancia-la industrial.webp',
+      '/ambulancia-laindustrial.webp',
+      '/ambulancia.webp',
     ],
     specs: [
       'Aislamiento termo-acústico y revestimiento interior de fácil asepsia',
@@ -231,10 +231,10 @@ export const productLines = [
     desc: 'Estructuras en fibra de vidrio para reducir la resistencia al viento y optimizar combustible.',
     longDesc: 'Fabricación e instalación de deflectores aerodinámicos (cortavientos) a medida para todo tipo de cabinas (Isuzu, Hino, etc.). Diseñados en fibra de vidrio de alta resistencia, estos accesorios reducen drásticamente la fricción del viento contra el furgón, optimizando el consumo de combustible y mejorando la presencia corporativa del vehículo.',
     images: [
-      '/deflector-aerodinamico-cortaviento-azul.jpeg',
-      '/deflector-aerodinamico-cortaviento.jpeg',
-      '/deflector-aerodinamico-cortaviento-blanco.jpeg',
-      '/deflector-aerodinamico-cortaviento-rojo.jpeg'
+      '/deflector-aerodinamico-cortaviento-azul.webp',
+      '/deflector-aerodinamico-cortaviento.webp',
+      '/deflector-aerodinamico-cortaviento-blanco.webp',
+      '/deflector-aerodinamico-cortaviento-rojo.webp'
     ],
     specs: [
       'Fabricación en resina y fibra de vidrio (PRFV) de alta durabilidad',
