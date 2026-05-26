@@ -36,8 +36,10 @@ const Footer = () => {
           <div className="footer__contact">
             <h3>Contáctanos</h3>
             <p>Distrito de Puente Piedra, Lima - Perú</p>
-            <p>carla.industrial@hotmail.com</p>
-            <p className="phone">+51 932 528 794</p>
+            <p>contactenos@carrocerialaindustrial.com</p>
+            <p>Ventas@carrocerialaindustrial.com</p>
+            <p className="phone">01 370 6259</p>
+            <p className="phone">+51 952 897 113</p>
             <p className="phone">+51 942 138 008</p>
           </div>
 
@@ -45,13 +47,11 @@ const Footer = () => {
           <div className="footer__social">
             <h3>Síguenos</h3>
             <div className="social-links">
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-icon linkedin">
-                <FaLinkedinIn />
-              </a>
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon facebook">
+              
+              <a href="https://www.facebook.com/LaIndustrialEIRL" target="_blank" rel="noopener noreferrer" className="social-icon facebook">
                 <FaFacebookF />
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon instagram">
+              <a href="https://www.instagram.com/laindustrialeirl/" target="_blank" rel="noopener noreferrer" className="social-icon instagram">
                 <FaInstagram />
               </a>
             </div>

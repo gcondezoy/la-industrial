@@ -83,7 +83,8 @@ const Contacto = () => {
                   <div className="icon-box"><FaEnvelope /></div>
                   <div>
                     <h3>Correo Corporativo</h3>
-                    <p>carla.industrial@hotmail.com</p>
+                    <p>contactenos@carrocerialaindustrial.com</p>
+                    <p>Ventas@carrocerialaindustrial.com</p>
                   </div>
                 </div>
 
