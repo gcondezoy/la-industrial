@@ -87,17 +87,19 @@ $bg-light: #f4f7f6;
 
     .card-image {
       width: 100%;
-      height: 240px;
-      background-color: $bg-light;
-      position: relative; // Crucial para que el contador flote encima
-      overflow: hidden; // Evita que el zoom de la foto se salga del borde
+      height: 220px; /* Mantiene todas las tarjetas del mismo tamaño */
+      background-color: #ffffff; /* Fondo blanco para rellenar los espacios vacíos */
+      display: flex; /* Centra la imagen si sobra espacio */
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
       
       img {
         width: 100%;
         height: 100%;
-        object-fit: cover; 
-        display: block;
-        transition: transform 0.4s ease;
+        // LA MAGIA ESTÁ AQUÍ:
+        object-fit: contain; // Obliga a la imagen a mostrarse completa
+        padding: 10px; // Opcional: Le da un respiro para que no pegue con los bordes
       }
 
       // El nuevo contador de fotos

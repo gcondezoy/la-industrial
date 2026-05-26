@@ -10,7 +10,6 @@ export const productLines = [
     longDesc: 'Fabricamos barandas comerciales, teleras y artísticas adaptadas a cualquier chasis. Estructuras rígidas que combinan la flexibilidad de la madera tratada con parantes y bases de acero estructural, forradas opcionalmente en panagra para rotulación corporativa o trabajos de aerografía premium.',
     images: [
       '/baranda-artistica-aerografia-compleja.jpeg',
-      '/baranda-artistica-aerografia-compleja (2).jpeg',
       '/baranda-artistica-caballo.jpeg',
       '/baranda-artistica-caballo (2).jpeg',
       '/baranda-bicolor-con-canastilla.jpeg',
@@ -29,8 +28,7 @@ export const productLines = [
       '/baranda-panagra-fija-roja.jpeg',
       '/baranda-panagra-verde-isuzu.jpeg',
       '/baranda-panagra-verde-leon.jpeg',
-      '/fabricacion-carroceria-barandas-altas-isuzu.jpeg',
-      '/fabricacion-carroceria-barandas-altas-isuzu (2).jpeg',
+      
       '/transporte-personal-bicolor.jpeg'
     ],
     specs: [
@@ -54,7 +52,7 @@ export const productLines = [
       '/furgon-cerrado-rampa-elevadora.jpeg',
       '/furgon-comercial-metalico-ligero.jpeg',
       '/furgon-con-cortaviento-aerodinamico.jpeg',
-      '/furgon-con-cortaviento-aerodinamico (2).jpeg',
+     
       '/furgon-con-rampa-hidraulica-azul.jpeg',
       '/furgon-cortaviento-plataforma-hidraulica.jpeg',
       '/furgon-heavy-duty-isuzu.jpeg',
@@ -79,7 +77,6 @@ export const productLines = [
       '/baranda-avicola-herlinda.jpeg',
       '/carroceria-pollero-semirremolque-roja.jpeg',
       '/carroceria-pollero-sobre-chasis.jpeg',
-      '/furgon-comercial-avicola.jpeg',
       '/furgon-comercial-avicola (2).jpeg'
     ],
     specs: [
@@ -98,8 +95,6 @@ export const productLines = [
     images: [
       '/olva-volteo-amarillo-negro.jpeg',
       '/olva-volteo-amarillo-negro (2).jpeg',
-      '/olva-volteo-amarillo-negro (3).jpeg',
-      '/olva-volteo-amarillo-negro (4).jpeg',
       '/tolva-estructural-volteo-azul.jpeg'
     ],
     specs: [
@@ -199,7 +194,10 @@ export const productLines = [
     macroCategory: 'Acondicionamiento',
     desc: 'Sistemas de apertura lateral hidráulica para carga y descarga express.',
     longDesc: 'Modificación técnica avanzada de furgones donde las paredes laterales se elevan por completo de manera vertical mediante pistones hidráulicos. Ideal para operaciones logísticas masivas que requieren acceso inmediato a palets.',
-    images: [],
+    images: [
+      'public/camion-mercedes-benz-carroceria-ala-gaviota..jpeg',
+      
+    ],
     specs: [
       'Apertura lateral mediante cilindros hidráulicos controlados',
       'Estructura de paneles aligerados para no penalizar la carga útil',
@@ -214,9 +212,9 @@ export const productLines = [
     desc: 'Transformación integral de vehículos para atención médica y misiones especiales.',
     longDesc: 'Acondicionamiento interno y externo de furgonetas o módulos sobre chasis para cumplir estrictamente con las normas de salud vigentes. Distribución ergonómica para el traslado y atención médica de pacientes.',
     images: [
-      '/ambulancia-la industrial.jpg',
-      '/ambulancia-laindustrial.jpg',
-      '/ambulancia.jpg',
+      '/ambulancia-la industrial.jpeg',
+      '/ambulancia-laindustrial.jpeg',
+      '/ambulancia.jpeg',
     ],
     specs: [
       'Aislamiento termo-acústico y revestimiento interior de fácil asepsia',
@@ -224,5 +222,28 @@ export const productLines = [
       'Anclajes estructurales certificados para camillas y balones de oxígeno',
       'Mobiliario médico integrado en materiales ligeros y lavables'
     ]
+  },
+
+  {
+    id: 'deflectores',
+    title: 'Deflectores Aerodinámicos (Cortavientos)',
+    macroCategory: 'Acondicionamiento',
+    desc: 'Estructuras en fibra de vidrio para reducir la resistencia al viento y optimizar combustible.',
+    longDesc: 'Fabricación e instalación de deflectores aerodinámicos (cortavientos) a medida para todo tipo de cabinas (Isuzu, Hino, etc.). Diseñados en fibra de vidrio de alta resistencia, estos accesorios reducen drásticamente la fricción del viento contra el furgón, optimizando el consumo de combustible y mejorando la presencia corporativa del vehículo.',
+    images: [
+      '/deflector-aerodinamico-cortaviento-azul.jpeg',
+      '/deflector-aerodinamico-cortaviento.jpeg',
+      '/deflector-aerodinamico-cortaviento-blanco.jpeg',
+      '/deflector-aerodinamico-cortaviento-rojo.jpeg'
+    ],
+    specs: [
+      'Fabricación en resina y fibra de vidrio (PRFV) de alta durabilidad',
+      'Diseño aerodinámico adaptado a la curvatura original de cada cabina',
+      'Acabado en pintura de poliuretano horneable con colores corporativos',
+      'Instalación segura con soportes metálicos integrados al techo',
+      'Integración opcional de luces LED de señalización perimetral'
+    ]
   }
+
+  
 ];

@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-// Restaurado a tus iconos originales de react-icons
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaClock } from 'react-icons/fa';
 import './Contact.scss';
 
 const Contacto = () => {
   const [formData, setFormData] = useState({
     nombre: '',
-    ruc: '', // Agregado el estado del RUC
+    ruc: '',
     email: '',
     telefono: '',
     servicio: '',
@@ -67,7 +66,8 @@ const Contacto = () => {
                   <div className="icon-box"><FaMapMarkerAlt /></div>
                   <div>
                     <h3>Planta Principal</h3>
-                    <p>Distrito de Puente Piedra<br />Lima, Perú</p>
+                    {/* DIRECCIÓN ACTUALIZADA AQUÍ */}
+                    <p>Casa huerta San Pedro MZ B<br />Lote 6, Puente Piedra<br />Lima, Perú</p>
                   </div>
                 </div>
 
@@ -107,13 +107,12 @@ const Contacto = () => {
               <div className="contact-form-card">
                 <h2>Envíanos los datos de tu camión</h2>
                 <form onSubmit={handleSubmit}>
-                  
+                  {/* ... (Todo tu formulario se mantiene exactamente igual) ... */}
                   <div className="form-group">
                     <label>Nombre o Razón Social</label>
                     <input type="text" name="nombre" placeholder="Ej. Transportes del Norte S.A.C." required onChange={handleChange} />
                   </div>
 
-                  {/* Fila agregada para el RUC y Teléfono */}
                   <div className="form-row">
                     <div className="form-group">
                       <label>Número de RUC</label>
@@ -155,6 +154,29 @@ const Contacto = () => {
             </motion.div>
 
           </div>
+
+          {/* 3. NUEVA SECCIÓN DEL MAPA */}
+          <motion.div 
+            className="contact-map-container"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2>Encuéntranos en nuestro Taller</h2>
+            <div className="map-wrapper">
+              <iframe
+                title="Mapa de ubicación La Industrial"
+                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3807.518258450575!2d-77.0694503249412!3d-11.897834388327478!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTHCsDUzJzUyLjIiUyA3N8KwMDQnMDAuOCJX!5e1!3m2!1ses!2spe!4v1779825648455!5m2!1ses!2spe"
+                width="100%"
+                height="450"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </motion.div>
+
         </div>
       </section>
     </div>

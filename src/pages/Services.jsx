@@ -54,7 +54,7 @@ const Services = () => {
 
               <div className="catalog-card">
                 <div className="card-img-wrap">
-                  <img src="/diseño-carga-industrial.jpg" alt="Diseño Estructural Personalizado" />
+                  <img src="/diseño-carga-industrial.jpeg" alt="Diseño Estructural Personalizado" />
                 </div>
                 <div className="card-content">
                   <h3>Diseño y Cálculo a Medida</h3>
@@ -82,7 +82,7 @@ const Services = () => {
               
               <div className="catalog-card">
                 <div className="card-img-wrap">
-                  <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=800&q=80" alt="Servicio de Arenado e Imprimación" />
+                  <img src="/chasis-camion-azul-sin-carroceria.jpeg" alt="Servicio de Arenado e Imprimación" />
                 </div>
                 <div className="card-content">
                   <h3>Arenado Profesional (Sandblasting)</h3>
@@ -92,7 +92,7 @@ const Services = () => {
 
               <div className="catalog-card">
                 <div className="card-img-wrap">
-                  <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?auto=format&fit=crop&w=800&q=80" alt="Pintura Epóxica Industrial" />
+                  <img src="/baranda-madera-aerografia-personalizada.jpeg" alt="Pintura Epóxica Industrial" />
                 </div>
                 <div className="card-content">
                   <h3>Recubrimiento Epóxico y Acabados</h3>
@@ -110,7 +110,7 @@ const Services = () => {
               
               <div className="catalog-card">
                 <div className="card-img-wrap">
-                  <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80" alt="Mantenimiento Estructural Correctivo" />
+                  <img src="/plataforma-carga-pesada-metalica.jpeg" alt="Mantenimiento Estructural Correctivo" />
                 </div>
                 <div className="card-content">
                   <h3>Reparación de Carrocerías</h3>
@@ -120,7 +120,7 @@ const Services = () => {
 
               <div className="catalog-card">
                 <div className="card-img-wrap">
-                  <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=800&q=80" alt="Reforzamiento de Componentes Críticos" />
+                  <img src="/tolva-estructural-volteo-azul.jpeg" alt="Reforzamiento de Componentes Críticos" />
                 </div>
                 <div className="card-content">
                   <h3>Reforzamiento Estructural</h3>
@@ -130,7 +130,7 @@ const Services = () => {
 
               <div className="catalog-card">
                 <div className="card-img-wrap">
-                  <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80" alt="Asesoría Técnica de Flotas" />
+                  <img src="/baranda-metalica-abierta-utilitario.jpeg" alt="Asesoría Técnica de Flotas" />
                 </div>
                 <div className="card-content">
                   <h3>Evaluación y Diagnóstico Técnico</h3>
