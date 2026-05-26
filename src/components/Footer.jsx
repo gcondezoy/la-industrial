@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaLinkedinIn, FaFacebookF, FaInstagram } from 'react-icons/fa';
+// Agrega FaTiktok a tu lista de importaciones
+import { FaFacebookF, FaInstagram, FaTiktok } from 'react-icons/fa';
 import './Footer.scss';
 
 const Footer = () => {
