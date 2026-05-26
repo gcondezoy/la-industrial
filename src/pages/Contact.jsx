@@ -75,7 +75,7 @@ const Contacto = () => {
                   <div className="icon-box"><FaPhoneAlt /></div>
                   <div>
                     <h3>Teléfonos Directos</h3>
-                    <p>+51 932 528 794 (Ventas)<br />+51 942 138 008 (Soporte)</p>
+                    <p>+51 932 528 794 (Ventas)<br />+51 942 138 008 (Soporte)<br />+51 952 897 113 (Soporte)</p>
                   </div>
                 </div>
 
@@ -83,8 +83,7 @@ const Contacto = () => {
                   <div className="icon-box"><FaEnvelope /></div>
                   <div>
                     <h3>Correo Corporativo</h3>
-                    <p>contactenos@carrocerialaindustrial.com</p>
-                    <p>Ventas@carrocerialaindustrial.com</p>
+                    <p>Laindustrialeirl@gmail.com</p>
                   </div>
                 </div>
 
