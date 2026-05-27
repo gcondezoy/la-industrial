@@ -38,7 +38,6 @@ const Footer = () => {
             <h3>Contáctanos</h3>
             <p>Distrito de Puente Piedra, Lima - Perú</p>
             <p>Laindustrialeirl@gmail.com</p>
-            <p className="phone">01 370 6259</p>
             <p className="phone">+51 952 897 113</p>
             <p className="phone">+51 942 138 008</p>
           </div>
