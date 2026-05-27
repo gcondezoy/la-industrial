@@ -203,6 +203,8 @@ export const productLines = [
     longDesc: 'Modificación técnica avanzada de furgones donde las paredes laterales se elevan por completo de manera vertical mediante pistones hidráulicos. Ideal para operaciones logísticas masivas que requieren acceso inmediato a palets.',
     images: [
         '/camion-mercedes-benz-carroceria-ala-gaviota.webp',
+      
+      
     ],
     specs: [
       'Apertura lateral mediante cilindros hidráulicos controlados',
