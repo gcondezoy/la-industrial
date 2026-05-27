@@ -5,6 +5,20 @@ $text-dark: #333333;
 $text-light: #666666;
 $bg-light: #f4f7f6;
 
+// ==========================================
+// ANIMACIÓN DE TRANSICIÓN SUAVE
+// ==========================================
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .portfolio-section {
   padding: 60px 0;
   background-color: #ffffff;
@@ -68,8 +82,18 @@ $bg-light: #f4f7f6;
     overflow: hidden;
     text-decoration: none; 
     box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid #eeeeee;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    // Aplicación de la animación
+    animation: fadeInUp 0.5s ease-out backwards;
+
+    // Efecto escalonado para que las tarjetas entren una tras otra
+    @for $i from 1 through 12 {
+      &:nth-child(#{$i}) {
+        animation-delay: #{$i * 0.05}s;
+      }
+    }
 
     &:hover {
       transform: translateY(-8px);
@@ -87,33 +111,20 @@ $bg-light: #f4f7f6;
 
     .card-image {
       width: 100%;
-      height: 220px; /* Mantiene todas las tarjetas del mismo tamaño */
-      background-color: #ffffff; /* Fondo blanco para rellenar los espacios vacíos */
-      display: flex; /* Centra la imagen si sobra espacio */
+      height: 220px; 
+      background-color: #ffffff; 
+      display: flex; 
       align-items: center;
       justify-content: center;
+      padding: 20px; 
+      box-sizing: border-box; 
       overflow: hidden;
       
       img {
-        width: 100%;
-        height: 100%;
-        // LA MAGIA ESTÁ AQUÍ:
+        max-width: 100%; 
+        max-height: 100%;
         object-fit: contain; // Obliga a la imagen a mostrarse completa
-        padding: 10px; // Opcional: Le da un respiro para que no pegue con los bordes
-      }
-
-      // El nuevo contador de fotos
-      .images-count {
-        position: absolute;
-        bottom: 15px;
-        right: 15px;
-        background-color: rgba(0, 0, 0, 0.75);
-        color: #ffffff;
-        padding: 6px 12px;
-        border-radius: 20px;
-        font-size: 0.8rem;
-        font-weight: bold;
-        backdrop-filter: blur(4px); // Efecto cristal moderno
+        transition: transform 0.5s ease;
       }
     }
 

@@ -32,10 +32,10 @@ const Portfolio = () => {
           ))}
         </div>
 
-        {/* Grid de Líneas de Producto */}
-        <div className="projects-grid">
+        {/* Grid de Líneas de Producto con KEY para forzar la animación al filtrar */}
+        <div className="projects-grid" key={activeCategory}>
           {filteredLines.map((line) => {
-            // Usamos la primera imagen de la galería como portada, si no hay ponemos un placeholder limpio
+            // Usamos la primera imagen de la galería como portada, si no hay ponemos un placeholder
             const coverImage = line.images.length > 0 ? line.images[0] : '/placeholder-camion.webp';
             
             return (
@@ -47,6 +47,7 @@ const Portfolio = () => {
                 <div className="card-image">
                   <img src={coverImage} alt={line.title} loading="lazy" />
                 </div>
+                
                 <div className="card-info">
                   <span>{line.macroCategory}</span>
                   <h3>{line.title}</h3>

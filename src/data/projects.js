@@ -110,7 +110,9 @@ export const productLines = [
     macroCategory: 'Sobre Chasis',
     desc: 'Carrocerías con aislamiento térmico para transporte de cadena de frío.',
     longDesc: 'Unidades herméticas aisladas estructuralmente para el traslado de productos perecederos, lácteos, carnes y medicinas. Mantienen la temperatura interna óptima reduciendo la transferencia de calor exterior.',
-    images: [],
+    images: [
+      '/furgon-frigorifico-isotermico-blanco.webp'
+    ],
     specs: [
       'Aislamiento interior en poliuretano inyectado de alta densidad',
       'Revestimiento interno en fibra de vidrio de grado alimentario (PRFV)',
@@ -124,7 +126,12 @@ export const productLines = [
     macroCategory: 'Sobre Chasis',
     desc: 'Tanques cilíndricos o elípticos para el transporte de fluidos.',
     longDesc: 'Unidades cisterna diseñadas para el transporte seguro de agua (regadío o consumo humano), combustibles o fluidos industriales, garantizando estabilidad y rompeolas internos reglamentarios.',
-    images: [],
+    images: [
+      '/camion-cisterna-agua-no-potable-hino.webp',
+      '/camion-cisterna-combustible-hyundai-mighty.webp',
+      '/camion-cisterna-combustible-roja.webp',
+      '/semirremolque-cisterna-combustible-rojo.webp'
+    ],
     specs: [
       'Construcción cilíndrica o elíptica en acero LAC o acero inoxidable',
       'Sistema interno de rompeolas para control dinámico del fluido',
@@ -152,38 +159,38 @@ export const productLines = [
       'Barandas perimetrales rebatibles de altura media'
     ]
   },
-  {
-    id: 'cama-baja',
-    title: 'Semirremolques Tipo Cama Baja',
-    macroCategory: 'Semirremolques',
-    desc: 'Unidades rebajadas para el transporte de maquinaria pesada.',
-    longDesc: 'Plataformas de baja altura diseñadas especialmente para el traslado seguro de maquinaria pesada amarilla (excavadoras, tractores, rodillos) optimizando el centro de gravedad y respetando los límites de altura en ruta.',
-    images: [],
-    specs: [
-      'Cuello de ganso fijo o desmontable hidráulico',
-      'Plataforma de carga rebajada con piso de madera dura o metal estriado',
-      'Rampas de acceso posteriores de accionamiento manual o hidráulico',
-      'Ejes de alta capacidad con suspensión mecánica o neumática'
-    ]
-  },
+ // {
+   // id: 'cama-baja',
+  //  title: 'Semirremolques Tipo Cama Baja',
+  //  macroCategory: 'Semirremolques',
+    //desc: 'Unidades rebajadas para el transporte de maquinaria pesada.',
+  //  longDesc: 'Plataformas de baja altura diseñadas especialmente para el traslado seguro de maquinaria pesada amarilla (excavadoras, tractores, rodillos) optimizando el centro de gravedad y respetando los límites de altura en ruta.',
+  //  images: [],
+    //specs: [
+   //   'Cuello de ganso fijo o desmontable hidráulico',
+    //  'Plataforma de carga rebajada con piso de madera dura o metal estriado',
+   //   'Rampas de acceso posteriores de accionamiento manual o hidráulico',
+   //   'Ejes de alta capacidad con suspensión mecánica o neumática'
+   // ]
+  //},
 
   // ==========================================
   // --- MACRO-CATEGORÍA: REMOLQUES ---
   // ==========================================
-  {
-    id: 'remolques',
-    title: 'Remolques Especiales',
-    macroCategory: 'Remolques',
-    desc: 'Unidades de enganche directo para ampliación de capacidad de carga.',
-    longDesc: 'Unidades de remolque equilibradas para acoplar directamente a camiones rígidos, permitiendo duplicar el volumen logístico de transporte en una sola ruta de operación comercial.',
-    images: [],
-    specs: [
-      'Lanza de enganche reforzada con ojo de tracción homologado',
-      'Sistemas de frenos neumáticos integrados sincronizados',
-      'Configuraciones de ejes centrales o direccionales con tornamesa',
-      'Carrocería superior configurable (baranda, furgón o plataforma)'
-    ]
-  },
+  //{
+  //  id: 'remolques',
+  //  title: 'Remolques Especiales',
+   // macroCategory: 'Remolques',
+  //  desc: 'Unidades de enganche directo para ampliación de capacidad de carga.',
+   // longDesc: 'Unidades de remolque equilibradas para acoplar directamente a camiones rígidos, permitiendo duplicar el volumen logístico de transporte en una sola ruta de operación comercial.',
+   // images: [],
+   // specs: [
+   //   'Lanza de enganche reforzada con ojo de tracción homologado',
+   //   'Sistemas de frenos neumáticos integrados sincronizados',
+   //   'Configuraciones de ejes centrales o direccionales con tornamesa',
+      //'Carrocería superior configurable (baranda, furgón o plataforma)'
+    //]
+  //},
 
   // ==========================================
   // --- MACRO-CATEGORÍA: ACONDICIONAMIENTO ---
@@ -195,8 +202,7 @@ export const productLines = [
     desc: 'Sistemas de apertura lateral hidráulica para carga y descarga express.',
     longDesc: 'Modificación técnica avanzada de furgones donde las paredes laterales se elevan por completo de manera vertical mediante pistones hidráulicos. Ideal para operaciones logísticas masivas que requieren acceso inmediato a palets.',
     images: [
-      'public/camion-mercedes-benz-carroceria-ala-gaviota..webp',
-      
+        '/camion-mercedes-benz-carroceria-ala-gaviota.webp',
     ],
     specs: [
       'Apertura lateral mediante cilindros hidráulicos controlados',
