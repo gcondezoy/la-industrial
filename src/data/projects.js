@@ -195,7 +195,7 @@ export const productLines = [
     desc: 'Sistemas de apertura lateral hidráulica para carga y descarga express.',
     longDesc: 'Modificación técnica avanzada de furgones donde las paredes laterales se elevan por completo de manera vertical mediante pistones hidráulicos. Ideal para operaciones logísticas masivas que requieren acceso inmediato a palets.',
     images: [
-      'public/camion-mercedes-benz-carroceria-ala-gaviota.webp',
+      '/camion-mercedes-benz-carroceria-ala-gaviota.webp',
       
     ],
     specs: [
