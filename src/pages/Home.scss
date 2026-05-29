@@ -1,299 +1,543 @@
-// Variables de Color basadas en el Flyer Corporativo
-$azul-industrial: #0b2240; 
+$azul-industrial: #1e293b; 
+$azul-profundo: #172033; 
 $naranja-industrial: #f15a24;
-$slate-dark: #0f172a;
-$slate-light: #f8fafc;
+$bg-light: #ffffff;
 $text-dark: #1e293b;
-$text-muted: #64748b;
 $white: #ffffff;
 
+// RESET GLOBAL LIMPIO
 .home-container {
   width: 100%;
-  overflow-x: hidden; // Previene el scroll horizontal fantasma en móviles
-  background-color: $slate-light;
+  max-width: 100%; 
+  overflow-x: clip; 
   font-family: system-ui, -apple-system, sans-serif;
+  background-color: $bg-light;
+  box-sizing: border-box;
 }
 
-// 1. ESTILOS HERO
-.hero-section {
+// ==========================================
+// ANIMACIONES DE SCROLL 
+// ==========================================
+.scroll-animate, .slide-in-left, .slide-in-right {
+  opacity: 0;
+}
+
+// Hacia arriba (Tarjetas, Estadísticas, Títulos)
+.scroll-animate {
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  &.is-visible { opacity: 1; transform: translateY(0); }
+}
+
+// Deslizar desde Izquierda
+.slide-in-left {
+  transform: translateX(-50px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+  &.is-visible { opacity: 1; transform: translateX(0); }
+}
+
+// Deslizar desde Derecha
+.slide-in-right {
+  transform: translateX(50px);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+  &.is-visible { opacity: 1; transform: translateX(0); }
+}
+
+// ==========================================
+// 1. HERO SLIDER
+// ==========================================
+.hero-slider {
   position: relative;
-  background-color: $slate-dark;
-  min-height: 80vh;
-  display: flex;
-  align-items: center;
-  padding: 5rem 1.5rem;
-  color: $white;
+  height: 85vh;
+  overflow: hidden;
+  width: 100%;
 
-  .hero-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; // Hace que cubra todo el espacio sin deformarse
-    z-index: 0;
-  }
-
-  .hero-overlay {
+  .slide {
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, rgba($slate-dark, 0.95) 30%, rgba($slate-dark, 0.6) 100%);
-    z-index: 1;
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 800px;
-    margin: 0 auto;
-    width: 100%;
-
-    @media (min-width: 768px) {
-      margin-left: 10%;
-    }
-  }
-
-  .brand-badge {
-    color: $naranja-industrial;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    font-size: 0.875rem;
-    display: block;
-    margin-bottom: 1rem;
-  }
-
-  .hero-title {
-    font-size: 2.5rem;
-    font-weight: 900;
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
-
-    @media (min-width: 768px) {
-      font-size: 4rem;
-    }
-
-    .highlight {
-      color: $naranja-industrial;
-    }
-  }
-
-  .hero-description {
-    font-size: 1.125rem;
-    color: #cbd5e1;
-    line-height: 1.6;
-    margin-bottom: 2.5rem;
-    max-width: 650px;
-  }
-
-  .hero-actions {
+    opacity: 0;
+    transition: opacity 1s ease-in-out; 
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
+    &.active { opacity: 1; z-index: 1; }
+
+    .slide-bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .slide-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 100%);
+    }
+
+    .slide-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 0 5%;
+      color: $white;
+
+      h1 {
+        font-size: 2.5rem;
+        font-weight: 900;
+        line-height: 1.1;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        @media (min-width: 768px) { font-size: 4rem; }
+      }
+
+      p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        @media (min-width: 768px) { font-size: 1.25rem; }
+      }
+
+      .btn-primary {
+        display: inline-block;
+        background-color: #27304b; 
+        color: $white;
+        padding: 1rem 2.5rem;
+        border-radius: 30px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: background 0.3s;
+        &:hover { background-color: $azul-profundo; }
+      }
+    }
+  }
+
+  .slider-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    z-index: 10;
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: rgba(255,255,255,0.4);
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      &.active { background-color: $white; }
+    }
+  }
+}
+
+// ==========================================
+// 2. BARRA DE GARANTÍAS
+// ==========================================
+.features-banner {
+  background-color: $azul-profundo;
+  color: $white;
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 3rem 5%;
+  gap: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: flex-start;
     gap: 1rem;
 
-    a {
-      padding: 1rem 2rem;
-      border-radius: 9999px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
+    .feature-icon {
+      width: 40px;
+      height: 40px;
+      color: rgba(255,255,255,0.9);
+      flex-shrink: 0;
     }
 
-    .btn-primary {
-      background-color: $naranja-industrial;
-      color: $white;
-      &:hover {
-        background-color: darken($naranja-industrial, 10%);
-      }
-    }
-
-    .btn-secondary {
-      background-color: rgba($white, 0.1);
-      color: $white;
-      border: 1px border rgba($white, 0.2);
-      &:hover {
-        background-color: rgba($white, 0.2);
-      }
-    }
+    h3 { margin: 0 0 0.5rem 0; font-size: 1.2rem; }
+    p { margin: 0; font-size: 0.9rem; color: #cbd5e1; line-height: 1.5; }
   }
 }
 
-// 2. ESTILOS VENTAJAS / PILARES
-.ventajas-section {
-  padding: 6rem 1.5rem;
-  max-width: 1280px;
+// ==========================================
+// 3 y 4. SECCIONES SPLIT
+// ==========================================
+.info-split {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5rem 5%;
+  background-color: $bg-light;
+  max-width: 1400px;
   margin: 0 auto;
+  gap: 3rem;
+  overflow: hidden; 
 
-  .section-header {
-    text-align: center;
-    margin-bottom: 4rem;
-
-    .section-subtitle {
-      color: $naranja-industrial;
-      font-weight: 700;
-      text-transform: uppercase;
-      font-size: 0.875rem;
-      letter-spacing: 0.1em;
-    }
-
-    .section-title {
-      font-size: 2.25rem;
-      font-weight: 800;
-      color: $text-dark;
-      margin: 0.5rem 0 1rem;
-      
-      .highlight {
-        color: $naranja-industrial;
-      }
-    }
-
-    .section-description {
-      color: $text-muted;
-      max-width: 600px;
-      margin: 0 auto;
-      font-size: 1.125rem;
-    }
+  @media (min-width: 992px) {
+    flex-direction: row;
+    &.reverse { flex-direction: row-reverse; }
   }
 
-  .ventajas-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-
-    @media (min-width: 640px) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    @media (min-width: 1024px) {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-
-  .ventaja-card {
-    background-color: $white;
-    padding: 2.5rem 2rem;
-    border-radius: 1rem;
-    border: 1px solid #f1f5f9;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
-    }
-
-    .icon-wrapper {
-      background-color: #fff7ed;
-      padding: 1rem;
-      border-radius: 0.75rem;
-      width: fit-content;
+  .info-text {
+    flex: 1;
+    h2 {
+      font-size: 2rem;
+      color: $azul-profundo;
       margin-bottom: 1.5rem;
-      
-      .icon {
-        color: $naranja-industrial;
-      }
+      line-height: 1.2;
+      @media (min-width: 768px) { font-size: 2.5rem; }
     }
+    p { color: #64748b; font-size: 1.1rem; line-height: 1.6; }
+  }
 
-    .card-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: $text-dark;
-      margin-bottom: 0.75rem;
-    }
-
-    .card-description {
-      color: $text-muted;
-      font-size: 0.875rem;
-      line-height: 1.6;
-    }
+  .info-img {
+    flex: 1;
+    width: 100%;
+    img { width: 100%; height: auto; object-fit: contain; }
   }
 }
 
-// 3. ESTILOS SECCIÓN CONTACTO
-.contact-section {
-  background-color: $azul-industrial;
-  padding: 6rem 1.5rem;
-  color: $white;
+// ==========================================
+// 4.5 SECCIÓN DE ESTADÍSTICAS
+// ==========================================
+.stats-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 5%;
+  background-color: $white;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-top: 1px solid #f1f5f9;
+  border-bottom: 1px solid #f1f5f9;
 
-  .section-header-dark {
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .stat-item {
     text-align: center;
-    margin-bottom: 4rem;
-
     h2 {
-      font-size: 2.25rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-      span { color: $naranja-industrial; }
+      font-size: 3.5rem;
+      color: $azul-profundo;
+      margin-bottom: 0.5rem;
+      font-weight: 900;
     }
     p {
-      color: #94a3b8;
-      max-width: 500px;
-      margin: 0 auto;
+      font-size: 1.1rem;
+      color: #64748b;
+      font-weight: 500;
+      margin: 0;
     }
   }
+}
 
-  .contact-grid {
+// ==========================================
+// 5 y 6. SLIDERS INTERACTIVOS
+// ==========================================
+.slider-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px 0; 
+
+  .slider-btn {
+    position: absolute;
+    z-index: 10;
+    background-color: $azul-profundo;
+    color: $white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: background-color 0.3s, transform 0.2s;
 
-    @media (min-width: 768px) {
-      flex-direction: row;
+    &:hover { background-color: lighten($azul-profundo, 15%); transform: scale(1.1); }
+    &.prev { left: 10px; }
+    &.next { right: 10px; }
+    
+    @media (max-width: 768px) { display: none; } 
+  }
+}
+
+.interactive-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  cursor: grab;
+  padding: 10px 40px; 
+  user-select: none; 
+  
+  -ms-overflow-style: none;  
+  scrollbar-width: none;  
+  &::-webkit-scrollbar { display: none; }
+
+  &.dragging {
+    cursor: grabbing;
+    scroll-behavior: auto;
+    .product-tall-card { pointer-events: none; } 
+  }
+}
+
+// ==========================================
+// PRODUCTOS
+// ==========================================
+.products-slider-section {
+  padding: 4rem 0;
+  background-color: $bg-light;
+  
+  .section-header-row {
+    margin-bottom: 1rem;
+    padding: 0 5%;
+    h2 { color: $azul-profundo; font-size: 2.2rem; text-align: center; }
+  }
+
+  .products-track {
+    gap: 1.5rem;
+  }
+
+  .product-tall-card {
+    min-width: 280px; 
+    flex: 0 0 auto;
+    height: 400px;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    border: 1px solid #e2e8f0;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+
+    @media (min-width: 768px) { min-width: 320px; height: 450px; }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; 
+      padding: 20px 20px 100px 20px; 
+      box-sizing: border-box;
+      transition: transform 0.6s ease;
+      pointer-events: none; 
+    }
+
+    .card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 40%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2rem;
+      pointer-events: none; 
+      
+      h3, .btn-outline { pointer-events: auto; }
+      
+      h3 { color: $white; font-size: 1.4rem; margin-bottom: 1rem; font-weight: 700; }
+
+      .btn-outline {
+        background-color: rgba(255,255,255,0.9);
+        color: $text-dark;
+        text-decoration: none;
+        padding: 0.6rem 1.2rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 800;
+        text-align: center;
+        width: fit-content;
+        transition: background 0.3s;
+        &:hover { background-color: $white; }
+      }
+    }
+
+    &:hover {
+      transform: translateY(-12px); 
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15); 
+      img { transform: scale(1.05); } 
+    }
+  }
+}
+
+// ==========================================
+// MARCAS (DISEÑO DE TARJETAS BLANCAS A COLOR)
+// ==========================================
+.brands-slider-section {
+  padding: 4rem 0;
+  background-color: #f8fafc; // Fondo gris ultra claro para que resalten las cajas blancas
+  border-top: 1px solid #e2e8f0;
+  text-align: center;
+
+  h2 { color: $azul-profundo; margin-bottom: 2rem; font-size: 1.8rem; }
+
+  .brands-wrapper {
+    .slider-btn {
+      background-color: $white;
+      color: $azul-profundo;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      &:hover { background-color: $azul-profundo; color: $white; }
+      &.prev { left: 0; }
+      &.next { right: 0; }
     }
   }
 
-  .contact-card {
-    background-color: rgba($white, 0.03);
-    border: 1px solid rgba($white, 0.08);
-    padding: 2rem;
-    border-radius: 1rem;
-    width: 100%;
-    max-width: 320px;
+  .brands-track {
+    gap: 2rem; // Espacio entre tarjetas
+    align-items: center;
+  }
+
+  .brand-item {
+    min-width: 180px; // Ancho de la tarjeta
+    height: 100px;    // Alto de la tarjeta
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none; 
+    
+    // FONDO BLANCO SOLICITADO
+    background-color: $white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+    border: 1px solid #f1f5f9;
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    img {
+      width: 100%;
+      max-width: 130px;
+      max-height: 70px;
+      object-fit: contain; 
+      pointer-events: auto; 
+      transition: transform 0.3s ease;
+      // YA NO HAY GRISES NI OPACIDADES AQUÍ
+    }
+
+    &:hover {
+      transform: translateY(-5px); // Se levanta un poquito
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08); // Sombra más fuerte
+      img { 
+        cursor: pointer; 
+        transform: scale(1.05); // Pequeño zoom al logo
+      }
+    }
+  }
+}
+
+// ==========================================
+// 7. FORMULARIO DE CONTACTO
+// ==========================================
+.contact-split-section {
+  padding: 5rem 5%;
+  background-color: #f8fafc;
+  overflow: hidden; 
+
+  .text-center { text-align: center; color: $azul-profundo; margin-bottom: 3rem; font-size: 2.2rem; }
+
+  .contact-container {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    text-decoration: none;
-    color: $white;
-    transition: border-color 0.3s ease;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: $white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
 
-    .card-icon {
-      color: $naranja-industrial;
-      margin-bottom: 1rem;
-      width: 2rem;
-      height: 2rem;
+    @media (min-width: 992px) { flex-direction: row; }
+
+    .contact-image {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      background-color: $white; 
+      
+      img { 
+        width: 100%; 
+        height: 100%; 
+        max-height: 400px; 
+        object-fit: contain; 
+      }
     }
 
-    h3 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
+    .contact-form-wrapper {
+      flex: 1.2;
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
 
-    p {
-      font-size: 0.875rem;
-      color: #94a3b8;
-      line-height: 1.5;
-    }
+      .form-row {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        @media (min-width: 768px) { flex-direction: row; }
+        input { flex: 1; }
+      }
 
-    .phone-number {
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: $naranja-industrial;
-      margin: 0.25rem 0;
-    }
+      input, textarea {
+        width: 100%;
+        padding: 1rem;
+        border: 1px solid #cbd5e1;
+        border-radius: 5px;
+        margin-bottom: 1rem;
+        font-family: inherit;
+        background-color: #f8fafc;
+        box-sizing: border-box;
+        transition: border-color 0.3s ease;
+        &:focus { outline: none; border-color: $azul-profundo; background-color: $white;}
+      }
 
-    .hint {
-      font-size: 0.75rem;
-      color: #64748b;
-    }
+      .btn-submit {
+        background-color: $azul-profundo;
+        color: $white;
+        border: none;
+        padding: 1rem;
+        border-radius: 5px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 0.3s;
+        text-transform: uppercase;
+        &:hover { background-color: lighten($azul-profundo, 10%); }
+      }
 
-    &.link-card:hover {
-      border-color: rgba($naranja-industrial, 0.5);
+      .divider { margin: 2rem 0; border: none; border-top: 1px solid #e2e8f0; }
+
+      .btn-whatsapp {
+        background-color: #25D366;
+        color: $white;
+        text-align: center;
+        padding: 1rem;
+        border-radius: 5px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: background 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        &:hover { background-color: #1ebc5a; }
+      }
     }
   }
 }

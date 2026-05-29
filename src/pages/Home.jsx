@@ -1,125 +1,320 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Settings, Truck, Wrench, ShieldCheck, MapPin, Phone } from 'lucide-react';
-import './Home.scss'; // Conectado a tus estilos SASS
+import { ChevronLeft, ChevronRight, ShieldCheck, Clock, Award } from 'lucide-react';
+import { productLines } from '../data/projects.js';
+import './Home.scss';
 
 const Home = () => {
-  const ventajas = [
+  const [currentSlide, setCurrentSlide] = useState(0);
+  
+  const productsRef = useRef(null);
+  const brandsRef = useRef(null);
+  const dragProps = useRef({ isDown: false, startX: 0, scrollLeft: 0, isHovering: false });
+
+  const heroSlides = [
     {
-      id: 1,
-      icon: <Settings className="icon" />,
-      titulo: "Diseño y fabricación a medida",
-      descripcion: "Desarrollamos estructuras personalizadas calculadas para las dimensiones y necesidades específicas de tu unidad."
+      title: "FABRICACIÓN DE CARROCERÍAS METÁLICAS",
+      desc: "Conoce todos nuestros modelos y elige la que más se adecue a tu negocio.",
+      img: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1920&q=80"
     },
     {
-      id: 2,
-      icon: <Truck className="icon" />,
-      titulo: "Estructuras resistentes y duraderas",
-      descripcion: "Utilizamos materiales seleccionados de alta resistencia para garantizar carrocerías preparadas para el transporte pesado."
-    },
-    {
-      id: 3,
-      icon: <Wrench className="icon" />,
-      titulo: "Acabados en metal y madera",
-      descripcion: "Trabajamos con uniones metalmecánicas precisas y madera de alta densidad para asegurar la máxima durabilidad en ruta."
-    },
-    {
-      id: 4,
-      icon: <ShieldCheck className="icon" />,
-      titulo: "Soluciones para carga pesada",
-      descripcion: "Especialistas en la fabricación de unidades estructurales resistentes y sistemas de transporte especializado."
+      title: "CARROCERÍAS PARA TODAS LAS INDUSTRIAS",
+      desc: "¡Solicita tu cotización ya!",
+      img: "https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=1920&q=80"
     }
   ];
+
+  // Cambiamos el array de textos por objetos con la ruta de la imagen
+  // Array de marcas optimizado para SEO
+  const marcas = [
+    { name: 'HINO', img: '/marcas/carrocerias-para-camiones-hino.webp', alt: 'Carrocerías metálicas fabricadas para camiones Hino' },
+    { name: 'HYUNDAI', img: '/marcas/carrocerias-metalicas-hyundai.webp', alt: 'Fabricación de carrocerías para camiones Hyundai' },
+    { name: 'ISUZU', img: '/marcas/carrocerias-furgon-isuzu.webp', alt: 'Carrocerías tipo furgón y baranda para camiones Isuzu' },
+    { name: 'IVECO', img: '/marcas/carrocerias-carga-pesada-iveco.webp', alt: 'Estructuras y carrocerías para camiones Iveco' },
+    { name: 'JAC', img: '/marcas/carrocerias-comerciales-jac.webp', alt: 'Diseños de carrocerías metálicas para camiones JAC Motors' },
+    { name: 'JMC', img: '/marcas/fabricacion-carrocerias-jmc.webp', alt: 'Carrocerías a medida para camiones de carga JMC' },
+    { name: 'Mercedes-Benz', img: '/marcas/carrocerias-heavy-duty-mercedes-benz.webp', alt: 'Carrocerías de alta resistencia para camiones Mercedes-Benz' },
+    { name: 'TOYOTA', img: '/marcas/carrocerias-metalicas-toyota.webp', alt: 'Fabricación de carrocerías para camiones y barandas Toyota' },
+    { name: 'Volkswagen', img: '/marcas/carrocerias-camiones-volkswagen.webp', alt: 'Modelos de carrocerías para la línea de camiones Volkswagen' },
+    { name: 'VOLVO', img: '/marcas/carrocerias-remolques-volvo.webp', alt: 'Estructuras metálicas y carrocerías para camiones Volvo' }
+  ];
+  
+  const displayProducts = [...productLines, ...productLines, ...productLines]; 
+  const displayMarcas = [...marcas, ...marcas, ...marcas];
+
+  // Autoplay del Hero
+  useEffect(() => {
+    const slideInterval = setInterval(() => {
+      setCurrentSlide((prev) => (prev === heroSlides.length - 1 ? 0 : prev + 1));
+    }, 5000);
+    return () => clearInterval(slideInterval);
+  }, [heroSlides.length]);
+
+  // Animaciones de Scroll (Fade Up, Slide Left y Slide Right)
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+        } else {
+          entry.target.classList.remove('is-visible');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    const hiddenElements = document.querySelectorAll('.scroll-animate, .slide-in-left, .slide-in-right');
+    hiddenElements.forEach((el) => observer.observe(el));
+
+    return () => hiddenElements.forEach((el) => observer.unobserve(el));
+  }, []);
+
+  // Motor de Autoplay lento para Sliders
+  useEffect(() => {
+    const autoScroll = setInterval(() => {
+      if (!dragProps.current.isDown && !dragProps.current.isHovering) {
+        if (productsRef.current) {
+          productsRef.current.scrollLeft += 1; 
+          if (productsRef.current.scrollLeft >= productsRef.current.scrollWidth - productsRef.current.clientWidth - 1) {
+            productsRef.current.scrollLeft = 0;
+          }
+        }
+        if (brandsRef.current) {
+          brandsRef.current.scrollLeft += 1;
+          if (brandsRef.current.scrollLeft >= brandsRef.current.scrollWidth - brandsRef.current.clientWidth - 1) {
+            brandsRef.current.scrollLeft = 0;
+          }
+        }
+      }
+    }, 30); 
+
+    return () => clearInterval(autoScroll);
+  }, []);
+
+  // Funciones de Arrastre y Flechas
+  const scrollSlider = (ref, direction) => {
+    if (ref.current) {
+      const scrollAmount = ref.current.offsetWidth > 768 ? 350 : 250; 
+      ref.current.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
+    }
+  };
+
+  const handleMouseDown = (e, ref) => {
+    dragProps.current.isDown = true;
+    dragProps.current.startX = e.pageX - ref.current.offsetLeft;
+    dragProps.current.scrollLeft = ref.current.scrollLeft;
+    ref.current.classList.add('dragging');
+  };
+
+  const handleMouseLeaveOrUp = (ref) => {
+    dragProps.current.isDown = false;
+    ref.current.classList.remove('dragging');
+  };
+
+  const handleMouseMove = (e, ref) => {
+    if (!dragProps.current.isDown) return;
+    e.preventDefault();
+    const x = e.pageX - ref.current.offsetLeft;
+    const walk = (x - dragProps.current.startX) * 1.5; 
+    ref.current.scrollLeft = dragProps.current.scrollLeft - walk;
+  };
 
   return (
     <div className="home-container">
       
-      {/* 1. SECCIÓN HERO */}
-      <section className="hero-section">
-        <img 
-          src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1920&q=80" 
-          alt="Taller industrial y carrocerías" 
-          className="hero-background" 
-        />
-        <div className="hero-overlay"></div>
-        <div className="hero-content">
-          <span className="brand-badge">LA INDUSTRIAL S.A.C.</span>
-          <h1 className="hero-title">
-            Fabricación de Carrocerías en <span className="highlight">Metal y Madera</span>
-          </h1>
-          {/* TEXTO DE TRAYECTORIA INTEGRADO AQUÍ */}
-          <p className="hero-description">
-            En La Industrial S.A.C. nos dedicamos a la fabricación de carrocerías en metal y madera. Con más de 40 años en el rubro que garantizan la calidad y resistencia de nuestro trabajo, diseñamos soluciones robustas a medida para optimizar tus operaciones de carga general y transporte especializado en todo el país.
-          </p>
-          <div className="hero-actions">
-            <Link to="/proyectos" className="btn-primary">
-              Ver Proyectos <ArrowRight size={18} />
-            </Link>
-            <a href="https://wa.me/51932528794" target="_blank" rel="noopener noreferrer" className="btn-secondary">
-              Cotizar por WhatsApp
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* 2. SECCIÓN VENTAJAS */}
-      <section className="ventajas-section">
-        <div className="section-header">
-          <span className="section-subtitle">Nuestra Propuesta</span>
-          <h2 className="section-title">
-            Especialistas en <span className="highlight">Transporte Pesado</span>
-          </h2>
-          <p className="section-description">
-            Soluciones robustas en metalmecánica y madera estructural diseñadas para resistir las condiciones de carga más exigentes del país.
-          </p>
-        </div>
-
-        <div className="ventajas-grid">
-          {ventajas.map((item) => (
-            <div key={item.id} className="ventaja-card">
-              <div className="icon-wrapper">{item.icon}</div>
-              <h3 className="card-title">{item.titulo}</h3>
-              <p className="card-description">{item.descripcion}</p>
+      {/* 1. HERO SLIDER */}
+      <section className="hero-slider">
+        {heroSlides.map((slide, index) => (
+          <div key={index} className={`slide ${index === currentSlide ? 'active' : ''}`}>
+            <img src={slide.img} alt={slide.title} className="slide-bg" />
+            <div className="slide-overlay"></div>
+            <div className="slide-content">
+              <h1>{slide.title}</h1>
+              <p>{slide.desc}</p>
+              <Link to="/contacto" className="btn-primary">COTIZA AQUÍ →</Link>
             </div>
+          </div>
+        ))}
+        <div className="slider-dots">
+          {heroSlides.map((_, index) => (
+            <button 
+              key={index} 
+              className={`dot ${index === currentSlide ? 'active' : ''}`}
+              onClick={() => setCurrentSlide(index)}
+            />
           ))}
         </div>
       </section>
 
-      {/* 3. SECCIÓN CONTACTO REAL */}
-      <section className="contact-section">
-        <div className="section-header-dark">
-          <h2>Canales de <span>Contacto Directo</span></h2>
-          <p>Comunícate directamente con nuestros asesores comerciales para solicitar un presupuesto adaptado a tu chasis.</p>
+      {/* 2. BARRA DE GARANTÍAS */}
+      <section className="features-banner scroll-animate">
+        <div className="feature-item">
+          <ShieldCheck className="feature-icon" />
+          <div className="feature-text">
+            <h3>SEGURIDAD</h3>
+            <p>Materiales A1, maquinaria de punta y personal capacitado que permiten fabricar carrocerías 100% seguras.</p>
+          </div>
         </div>
+        <div className="feature-item">
+          <Clock className="feature-icon" />
+          <div className="feature-text">
+            <h3>PUNTUALIDAD</h3>
+            <p>Amplia planta de fabricación dedicada que nos permite fabricar en tiempo récord.</p>
+          </div>
+        </div>
+        <div className="feature-item">
+          <Award className="feature-icon" />
+          <div className="feature-text">
+            <h3>GARANTÍA</h3>
+            <p>24 meses de garantía en todos los productos y seguimiento post-venta.</p>
+          </div>
+        </div>
+      </section>
 
-        <div className="contact-grid">
-          {/* TARJETA DE UBICACIÓN TRANSFORMADA EN ENLACE A MAPS */}
-          <a 
-            href="https://www.google.com/maps/place/11%C2%B053'52.2%22S+77%C2%B004'00.8%22W" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="contact-card link-card"
-            style={{ textDecoration: 'none', color: 'inherit' }}
+      {/* 3. SECCIÓN CHASIS (Transición Lateral) */}
+      <section className="info-split">
+        <div className="info-text slide-in-left">
+          <h2>¿Compraste tu camión y buscas una carrocería?</h2>
+          <p>Deja tu proyecto en nuestras manos y nos convertiremos en tus socios estratégicos brindando soluciones requeridas para tu negocio según tus necesidades de carga y transporte.</p>
+        </div>
+        <div className="info-img slide-in-right">
+          <img src="/chasis-camion-azul-sin-carroceria.webp" alt="Chasis de camión" />
+        </div>
+      </section>
+
+      {/* 4. SECCIÓN EXPERTOS (Transición Lateral) */}
+      <section className="info-split reverse">
+        <div className="info-img slide-in-left">
+          <img src="/furgon-heavy-duty-isuzu.webp" alt="Furgón terminado" />
+        </div>
+        <div className="info-text slide-in-right">
+          <h2>Expertos en la fabricación de todo tipo de carrocerías</h2>
+          <p>Desarrollamos soluciones logísticas a medida para el sector transporte. Fabricación eficiente, equipo especializado y procesos certificados que garantizan calidad en cada carrocería.</p>
+        </div>
+      </section>
+
+      {/* 4.5 CONTADORES ESTADÍSTICOS */}
+      <section className="stats-section scroll-animate">
+        <div className="stat-item">
+          <h2>100%</h2>
+          <p>De calidad garantizada</p>
+        </div>
+        <div className="stat-item">
+          <h2>+500</h2>
+          <p>Clientes atendidos</p>
+        </div>
+        <div className="stat-item">
+          <h2>+1000</h2>
+          <p>Carrocerías entregadas</p>
+        </div>
+      </section>
+
+      {/* 5. SLIDER DE PRODUCTOS */}
+      <section className="products-slider-section scroll-animate">
+        <div className="section-header-row">
+          <h2>Nuestros Principales Productos</h2>
+        </div>
+        
+        <div 
+          className="slider-wrapper"
+          onMouseEnter={() => dragProps.current.isHovering = true}
+          onMouseLeave={() => dragProps.current.isHovering = false}
+        >
+          <button className="slider-btn prev" onClick={() => scrollSlider(productsRef, 'left')}>
+            <ChevronLeft size={24} />
+          </button>
+          
+          <div 
+            className="products-track interactive-track" 
+            ref={productsRef}
+            onMouseDown={(e) => handleMouseDown(e, productsRef)}
+            onMouseLeave={() => handleMouseLeaveOrUp(productsRef)}
+            onMouseUp={() => handleMouseLeaveOrUp(productsRef)}
+            onMouseMove={(e) => handleMouseMove(e, productsRef)}
           >
-            <MapPin className="card-icon" />
-            <h3>Sede de Operaciones</h3>
-            <span className="phone-number" style={{ fontSize: '1.5rem' }}>Lima, Perú</span>
-            <p className="hint">Planta de diseño y fabricación metalmecánica especializada.</p>
-          </a>
+            {displayProducts.map((product, index) => {
+              const coverImg = product.images && product.images.length > 0 ? product.images[0] : '/placeholder-camion.webp';
+              
+              return (
+                <div key={`${product.id}-${index}`} className="product-tall-card">
+                  <img src={coverImg} alt={product.title} loading="lazy" />
+                  <div className="card-overlay">
+                    <h3>{product.id.charAt(0).toUpperCase() + product.id.slice(1).replace('-', ' ')}</h3>
+                    <Link to={`/proyecto/${product.id}`} className="btn-outline" onDragStart={(e) => e.preventDefault()}>
+                      VER DETALLES →
+                    </Link>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
 
-          <a href="https://wa.me/51932528794" target="_blank" rel="noopener noreferrer" className="contact-card link-card">
-            <Phone className="card-icon" />
-            <h3>Contacto Comercial</h3>
-            <span className="phone-number">932 528 794</span>
-            <p className="hint">Atención inmediata y cotizaciones vía WhatsApp.</p>
-          </a>
+          <button className="slider-btn next" onClick={() => scrollSlider(productsRef, 'right')}>
+            <ChevronRight size={24} />
+          </button>
+        </div>
+      </section>
 
-          <a href="https://wa.me/51942138008" target="_blank" rel="noopener noreferrer" className="contact-card link-card">
-            <Phone className="card-icon" />
-            <h3>Asesoría Técnica</h3>
-            <span className="phone-number">942 138 008</span>
-            <p className="hint">Consultas de diseño estructural y especificaciones.</p>
-          </a>
+      {/* 6. SLIDER DE MARCAS */}
+      <section className="brands-slider-section scroll-animate">
+        <h2>Trabajamos con todas las marcas de camiones</h2>
+        <div 
+          className="slider-wrapper brands-wrapper"
+          onMouseEnter={() => dragProps.current.isHovering = true}
+          onMouseLeave={() => dragProps.current.isHovering = false}
+        >
+          <button className="slider-btn prev" onClick={() => scrollSlider(brandsRef, 'left')}>
+            <ChevronLeft size={24} />
+          </button>
+          
+          <div 
+            className="brands-track interactive-track" 
+            ref={brandsRef}
+            onMouseDown={(e) => handleMouseDown(e, brandsRef)}
+            onMouseLeave={() => handleMouseLeaveOrUp(brandsRef)}
+            onMouseUp={() => handleMouseLeaveOrUp(brandsRef)}
+            onMouseMove={(e) => handleMouseMove(e, brandsRef)}
+          >
+            {displayMarcas.map((marca, index) => (
+              <div key={`${marca.name}-${index}`} className="brand-item">
+                {/* Agregamos el atributo alt mapeado dinámicamente para el SEO */}
+                <img src={marca.img} alt={marca.alt} loading="lazy" />
+              </div>
+            ))}
+          </div>
+
+          <button className="slider-btn next" onClick={() => scrollSlider(brandsRef, 'right')}>
+            <ChevronRight size={24} />
+          </button>
+        </div>
+      </section>
+
+      {/* 7. FORMULARIO DE CONTACTO (Transición Lateral) */}
+      <section className="contact-split-section">
+        <h2 className="text-center scroll-animate">SOLICITA TU COTIZACIÓN</h2>
+        <div className="contact-container">
+          {/* Imagen entra por la izquierda */}
+          <div className="contact-image slide-in-left">
+            <img src="/baranda-comercial-blanca-canastilla.webp" alt="Cotización de carrocería" /> 
+          </div>
+          {/* Formulario entra por la derecha */}
+          <div className="contact-form-wrapper slide-in-right">
+            <form className="quote-form">
+              <div className="form-row">
+                <input type="text" placeholder="Nombre" required />
+                <input type="email" placeholder="Correo electrónico" required />
+              </div>
+              <div className="form-row">
+                <input type="tel" placeholder="Teléfono" required />
+                <input type="text" placeholder="Razón social o RUC" required />
+              </div>
+              <textarea placeholder="Producto en consulta" rows="4" required></textarea>
+              <button type="submit" className="btn-submit">Solicitar cotización</button>
+            </form>
+            <hr className="divider" />
+            <a href="https://wa.me/51932528794" target="_blank" rel="noopener noreferrer" className="btn-whatsapp">
+              Cotiza vía WhatsApp
+            </a>
+          </div>
         </div>
       </section>
 
