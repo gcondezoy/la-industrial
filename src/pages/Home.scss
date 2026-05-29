@@ -300,7 +300,7 @@ $white: #ffffff;
 }
 
 // ==========================================
-// PRODUCTOS
+// PRODUCTOS (TAMAÑOS OPTIMIZADOS)
 // ==========================================
 .products-slider-section {
   padding: 4rem 0;
@@ -317,9 +317,9 @@ $white: #ffffff;
   }
 
   .product-tall-card {
-    min-width: 280px; 
+    min-width: 250px; // Reducido para que en celular se vea la siguiente tarjeta
     flex: 0 0 auto;
-    height: 400px;
+    height: 320px;    // Altura mucho más prudente para móviles
     border-radius: 15px;
     overflow: hidden;
     position: relative;
@@ -328,13 +328,16 @@ $white: #ffffff;
     border: 1px solid #e2e8f0;
     transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
 
-    @media (min-width: 768px) { min-width: 320px; height: 450px; }
+    @media (min-width: 768px) { 
+      min-width: 280px; // Ancho más elegante en PC
+      height: 360px;    // Altura reducida en PC para no ocupar toda la pantalla
+    }
 
     img {
       width: 100%;
       height: 100%;
       object-fit: contain; 
-      padding: 20px 20px 100px 20px; 
+      padding: 20px 20px 80px 20px; // Padding inferior reducido para adaptarse a la nueva altura
       box-sizing: border-box;
       transition: transform 0.6s ease;
       pointer-events: none; 
@@ -343,24 +346,29 @@ $white: #ffffff;
     .card-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 40%);
+      background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 50%);
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      padding: 2rem;
+      padding: 1.5rem; // Menos padding lateral/inferior para ganar espacio
       pointer-events: none; 
       
       h3, .btn-outline { pointer-events: auto; }
       
-      h3 { color: $white; font-size: 1.4rem; margin-bottom: 1rem; font-weight: 700; }
+      h3 { 
+        color: $white; 
+        font-size: 1.2rem; // Letra un poco más fina y proporcionada a la tarjeta
+        margin-bottom: 0.8rem; 
+        font-weight: 700; 
+      }
 
       .btn-outline {
         background-color: rgba(255,255,255,0.9);
         color: $text-dark;
         text-decoration: none;
-        padding: 0.6rem 1.2rem;
+        padding: 0.5rem 1rem; // Botón ligeramente más compacto
         border-radius: 20px;
-        font-size: 0.8rem;
+        font-size: 0.75rem;
         font-weight: 800;
         text-align: center;
         width: fit-content;
@@ -370,7 +378,7 @@ $white: #ffffff;
     }
 
     &:hover {
-      transform: translateY(-12px); 
+      transform: translateY(-8px); // Se levanta sutilmente
       box-shadow: 0 15px 30px rgba(0,0,0,0.15); 
       img { transform: scale(1.05); } 
     }
