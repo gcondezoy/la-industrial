@@ -9,7 +9,9 @@ const Home = () => {
   
   const productsRef = useRef(null);
   const brandsRef = useRef(null);
-  const dragProps = useRef({ isDown: false, startX: 0, scrollLeft: 0, isHovering: false });
+  
+  // Agregamos resumeTimeout para manejar la pausa en celulares
+  const dragProps = useRef({ isDown: false, startX: 0, scrollLeft: 0, isHovering: false, resumeTimeout: null });
 
   const heroSlides = [
     {
@@ -24,8 +26,6 @@ const Home = () => {
     }
   ];
 
-  // Cambiamos el array de textos por objetos con la ruta de la imagen
-  // Array de marcas optimizado para SEO
   const marcas = [
     { name: 'HINO', img: '/marcas/carrocerias-para-camiones-hino.webp', alt: 'Carrocerías metálicas fabricadas para camiones Hino' },
     { name: 'HYUNDAI', img: '/marcas/carrocerias-metalicas-hyundai.webp', alt: 'Fabricación de carrocerías para camiones Hyundai' },
@@ -42,7 +42,7 @@ const Home = () => {
   const displayProducts = [...productLines, ...productLines, ...productLines]; 
   const displayMarcas = [...marcas, ...marcas, ...marcas];
 
-  // Autoplay del Hero
+  // 1. Autoplay del Hero
   useEffect(() => {
     const slideInterval = setInterval(() => {
       setCurrentSlide((prev) => (prev === heroSlides.length - 1 ? 0 : prev + 1));
@@ -50,7 +50,7 @@ const Home = () => {
     return () => clearInterval(slideInterval);
   }, [heroSlides.length]);
 
-  // Animaciones de Scroll (Fade Up, Slide Left y Slide Right)
+  // 2. Animaciones de Scroll 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -68,7 +68,7 @@ const Home = () => {
     return () => hiddenElements.forEach((el) => observer.unobserve(el));
   }, []);
 
-  // Motor de Autoplay lento para Sliders
+  // 3. Motor de Autoplay lento para Sliders
   useEffect(() => {
     const autoScroll = setInterval(() => {
       if (!dragProps.current.isDown && !dragProps.current.isHovering) {
@@ -90,7 +90,9 @@ const Home = () => {
     return () => clearInterval(autoScroll);
   }, []);
 
-  // Funciones de Arrastre y Flechas
+  // ==========================================
+  // LÓGICA DE INTERACCIÓN (MOUSE Y TOUCH)
+  // ==========================================
   const scrollSlider = (ref, direction) => {
     if (ref.current) {
       const scrollAmount = ref.current.offsetWidth > 768 ? 350 : 250; 
@@ -116,6 +118,19 @@ const Home = () => {
     const x = e.pageX - ref.current.offsetLeft;
     const walk = (x - dragProps.current.startX) * 1.5; 
     ref.current.scrollLeft = dragProps.current.scrollLeft - walk;
+  };
+
+  // Novedad: Eventos para que el celular no se atasque al deslizar
+  const handleTouchStart = () => {
+    dragProps.current.isHovering = true; // Pausa el motor
+    if (dragProps.current.resumeTimeout) clearTimeout(dragProps.current.resumeTimeout);
+  };
+
+  const handleTouchEnd = () => {
+    // Da 1.5 segundos de gracia después de soltar el dedo para que termine de deslizar
+    dragProps.current.resumeTimeout = setTimeout(() => {
+      dragProps.current.isHovering = false;
+    }, 1500); 
   };
 
   return (
@@ -170,7 +185,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 3. SECCIÓN CHASIS (Transición Lateral) */}
+      {/* 3. SECCIÓN CHASIS */}
       <section className="info-split">
         <div className="info-text slide-in-left">
           <h2>¿Compraste tu camión y buscas una carrocería?</h2>
@@ -181,7 +196,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 4. SECCIÓN EXPERTOS (Transición Lateral) */}
+      {/* 4. SECCIÓN EXPERTOS */}
       <section className="info-split reverse">
         <div className="info-img slide-in-left">
           <img src="/furgon-heavy-duty-isuzu.webp" alt="Furgón terminado" />
@@ -218,6 +233,8 @@ const Home = () => {
           className="slider-wrapper"
           onMouseEnter={() => dragProps.current.isHovering = true}
           onMouseLeave={() => dragProps.current.isHovering = false}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
         >
           <button className="slider-btn prev" onClick={() => scrollSlider(productsRef, 'left')}>
             <ChevronLeft size={24} />
@@ -261,6 +278,8 @@ const Home = () => {
           className="slider-wrapper brands-wrapper"
           onMouseEnter={() => dragProps.current.isHovering = true}
           onMouseLeave={() => dragProps.current.isHovering = false}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
         >
           <button className="slider-btn prev" onClick={() => scrollSlider(brandsRef, 'left')}>
             <ChevronLeft size={24} />
@@ -276,7 +295,6 @@ const Home = () => {
           >
             {displayMarcas.map((marca, index) => (
               <div key={`${marca.name}-${index}`} className="brand-item">
-                {/* Agregamos el atributo alt mapeado dinámicamente para el SEO */}
                 <img src={marca.img} alt={marca.alt} loading="lazy" />
               </div>
             ))}
@@ -288,15 +306,13 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 7. FORMULARIO DE CONTACTO (Transición Lateral) */}
+      {/* 7. FORMULARIO DE CONTACTO */}
       <section className="contact-split-section">
         <h2 className="text-center scroll-animate">SOLICITA TU COTIZACIÓN</h2>
         <div className="contact-container">
-          {/* Imagen entra por la izquierda */}
           <div className="contact-image slide-in-left">
             <img src="/baranda-comercial-blanca-canastilla.webp" alt="Cotización de carrocería" /> 
           </div>
-          {/* Formulario entra por la derecha */}
           <div className="contact-form-wrapper slide-in-right">
             <form className="quote-form">
               <div className="form-row">

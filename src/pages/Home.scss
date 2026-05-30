@@ -22,30 +22,25 @@ $white: #ffffff;
   opacity: 0;
 }
 
-// Hacia arriba (Tarjetas, Estadísticas, Títulos)
 .scroll-animate {
   transform: translateY(40px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
   &.is-visible { opacity: 1; transform: translateY(0); }
 }
 
-// Deslizar desde Izquierda
 .slide-in-left {
   transform: translateX(-50px);
   transition: opacity 0.8s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
   &.is-visible { opacity: 1; transform: translateX(0); }
 }
 
-// Deslizar desde Derecha
 .slide-in-right {
   transform: translateX(50px);
   transition: opacity 0.8s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
   &.is-visible { opacity: 1; transform: translateX(0); }
 }
 
-// ==========================================
 // 1. HERO SLIDER
-// ==========================================
 .hero-slider {
   position: relative;
   height: 85vh;
@@ -133,9 +128,7 @@ $white: #ffffff;
   }
 }
 
-// ==========================================
 // 2. BARRA DE GARANTÍAS
-// ==========================================
 .features-banner {
   background-color: $azul-profundo;
   color: $white;
@@ -168,9 +161,7 @@ $white: #ffffff;
   }
 }
 
-// ==========================================
 // 3 y 4. SECCIONES SPLIT
-// ==========================================
 .info-split {
   display: flex;
   flex-direction: column;
@@ -206,9 +197,7 @@ $white: #ffffff;
   }
 }
 
-// ==========================================
 // 4.5 SECCIÓN DE ESTADÍSTICAS
-// ==========================================
 .stats-section {
   display: flex;
   flex-direction: column;
@@ -244,9 +233,7 @@ $white: #ffffff;
   }
 }
 
-// ==========================================
-// 5 y 6. SLIDERS INTERACTIVOS
-// ==========================================
+// 5 y 6. SLIDERS INTERACTIVOS (DRAG + FLECHAS)
 .slider-wrapper {
   position: relative;
   display: flex;
@@ -280,13 +267,15 @@ $white: #ffffff;
   }
 }
 
+// CONTENEDOR FLUIDO SIN ATASCOS
 .interactive-track {
   display: flex;
   overflow-x: auto;
-  scroll-behavior: smooth;
+  // Eliminamos scroll-behavior: smooth para que el dedo deslice sin pelear con el CSS
   cursor: grab;
   padding: 10px 40px; 
   user-select: none; 
+  -webkit-overflow-scrolling: touch; // Da el deslizamiento natural y continuo en celulares
   
   -ms-overflow-style: none;  
   scrollbar-width: none;  
@@ -294,14 +283,11 @@ $white: #ffffff;
 
   &.dragging {
     cursor: grabbing;
-    scroll-behavior: auto;
     .product-tall-card { pointer-events: none; } 
   }
 }
 
-// ==========================================
-// PRODUCTOS (TAMAÑOS OPTIMIZADOS)
-// ==========================================
+// PRODUCTOS TAMAÑOS OPTIMIZADOS
 .products-slider-section {
   padding: 4rem 0;
   background-color: $bg-light;
@@ -317,9 +303,9 @@ $white: #ffffff;
   }
 
   .product-tall-card {
-    min-width: 250px; // Reducido para que en celular se vea la siguiente tarjeta
+    min-width: 250px; 
     flex: 0 0 auto;
-    height: 320px;    // Altura mucho más prudente para móviles
+    height: 320px;    
     border-radius: 15px;
     overflow: hidden;
     position: relative;
@@ -329,15 +315,15 @@ $white: #ffffff;
     transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
 
     @media (min-width: 768px) { 
-      min-width: 280px; // Ancho más elegante en PC
-      height: 360px;    // Altura reducida en PC para no ocupar toda la pantalla
+      min-width: 280px; 
+      height: 360px;    
     }
 
     img {
       width: 100%;
       height: 100%;
       object-fit: contain; 
-      padding: 20px 20px 80px 20px; // Padding inferior reducido para adaptarse a la nueva altura
+      padding: 20px 20px 80px 20px; 
       box-sizing: border-box;
       transition: transform 0.6s ease;
       pointer-events: none; 
@@ -350,14 +336,14 @@ $white: #ffffff;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      padding: 1.5rem; // Menos padding lateral/inferior para ganar espacio
+      padding: 1.5rem; 
       pointer-events: none; 
       
       h3, .btn-outline { pointer-events: auto; }
       
       h3 { 
         color: $white; 
-        font-size: 1.2rem; // Letra un poco más fina y proporcionada a la tarjeta
+        font-size: 1.2rem; 
         margin-bottom: 0.8rem; 
         font-weight: 700; 
       }
@@ -366,7 +352,7 @@ $white: #ffffff;
         background-color: rgba(255,255,255,0.9);
         color: $text-dark;
         text-decoration: none;
-        padding: 0.5rem 1rem; // Botón ligeramente más compacto
+        padding: 0.5rem 1rem; 
         border-radius: 20px;
         font-size: 0.75rem;
         font-weight: 800;
@@ -378,19 +364,17 @@ $white: #ffffff;
     }
 
     &:hover {
-      transform: translateY(-8px); // Se levanta sutilmente
+      transform: translateY(-8px); 
       box-shadow: 0 15px 30px rgba(0,0,0,0.15); 
       img { transform: scale(1.05); } 
     }
   }
 }
 
-// ==========================================
-// MARCAS (DISEÑO DE TARJETAS BLANCAS A COLOR)
-// ==========================================
+// MARCAS
 .brands-slider-section {
   padding: 4rem 0;
-  background-color: #f8fafc; // Fondo gris ultra claro para que resalten las cajas blancas
+  background-color: #f8fafc;
   border-top: 1px solid #e2e8f0;
   text-align: center;
 
@@ -408,20 +392,19 @@ $white: #ffffff;
   }
 
   .brands-track {
-    gap: 2rem; // Espacio entre tarjetas
+    gap: 2rem; 
     align-items: center;
   }
 
   .brand-item {
-    min-width: 180px; // Ancho de la tarjeta
-    height: 100px;    // Alto de la tarjeta
+    min-width: 180px; 
+    height: 100px;    
     flex: 0 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
     pointer-events: none; 
     
-    // FONDO BLANCO SOLICITADO
     background-color: $white;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.04);
@@ -436,23 +419,20 @@ $white: #ffffff;
       object-fit: contain; 
       pointer-events: auto; 
       transition: transform 0.3s ease;
-      // YA NO HAY GRISES NI OPACIDADES AQUÍ
     }
 
     &:hover {
-      transform: translateY(-5px); // Se levanta un poquito
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08); // Sombra más fuerte
+      transform: translateY(-5px); 
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08); 
       img { 
         cursor: pointer; 
-        transform: scale(1.05); // Pequeño zoom al logo
+        transform: scale(1.05); 
       }
     }
   }
 }
 
-// ==========================================
 // 7. FORMULARIO DE CONTACTO
-// ==========================================
 .contact-split-section {
   padding: 5rem 5%;
   background-color: #f8fafc;
