@@ -6,8 +6,14 @@ import './Portfolio.scss';
 const Portfolio = () => {
   const [activeCategory, setActiveCategory] = useState('Todos');
 
-  // Las 4 Macro-Categorías oficiales solicitadas
-  const macroCategories = ['Todos', 'Sobre Chasis', 'Semirremolques', 'Remolques', 'Acondicionamiento'];
+  // Las NUEVAS Macro-Categorías oficiales (Alineadas con projects.js)
+  const macroCategories = [
+    'Todos', 
+    'Línea Furgones', 
+    'Línea Abiertas y Barandas', 
+    'Línea Pesada', 
+    'Especiales y Accesorios'
+  ];
   
   // Filtrado lógico
   const filteredLines = activeCategory === 'Todos' 

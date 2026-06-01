@@ -1,60 +1,20 @@
 export const productLines = [
   // ==========================================
-  // --- MACRO-CATEGORÍA: SOBRE CHASIS ---
+  // 1. LÍNEA FURGONES
   // ==========================================
-  {
-    id: 'barandas',
-    title: 'Barandas (Tipo Baranda / Madera / Telera)',
-    macroCategory: 'Sobre Chasis',
-    desc: 'Carrocerías abiertas de madera selecta o metal para carga general.',
-    longDesc: 'Fabricamos barandas comerciales, teleras y artísticas adaptadas a cualquier chasis. Estructuras rígidas que combinan la flexibilidad de la madera tratada con parantes y bases de acero estructural, forradas opcionalmente en panagra para rotulación corporativa o trabajos de aerografía premium.',
-    images: [
-      '/baranda-artistica-aerografia-compleja.webp',
-      '/baranda-artistica-caballo.webp',
-      '/baranda-artistica-caballo (2).webp',
-      '/baranda-bicolor-con-canastilla.webp',
-      '/baranda-blanca-sin-panagra.webp',
-      '/baranda-comercial-blanca-canastilla.webp',
-      '/baranda-comercial-panagra-roja.webp',
-      '/baranda-con-canastilla-ligera.webp',
-      '/baranda-madera-aerografia-personalizada.webp',
-      '/baranda-madera-con-canastilla.webp',
-      '/baranda-madera-expuesta-towner.webp',
-      '/baranda-madera-panagra-peru.webp',
-      '/baranda-madera-pintura-fenix.webp',
-      '/baranda-metalica-abierta-utilitario.webp',
-      '/baranda-metalica-alta-canastilla.webp',
-      '/baranda-panagra-fija-isuzu.webp',
-      '/baranda-panagra-fija-roja.webp',
-      '/baranda-panagra-verde-isuzu.webp',
-      '/baranda-panagra-verde-leon.webp',
-      
-      '/transporte-personal-bicolor.webp'
-    ],
-    specs: [
-      'Estructura base en acero de alta resistencia (LAF / LAC)',
-      'Listones de madera selecta tratada contra la humedad y torsión',
-      'Forro exterior en panagra texturizado o liso',
-      'Canastillas superiores (copetes) aerodinámicas integradas',
-      'Sistema de compuertas rebatibles o fijas según requerimiento'
-    ]
-  },
   {
     id: 'furgones',
     title: 'Furgones (Cerrados / Comerciales)',
-    macroCategory: 'Sobre Chasis',
+    macroCategory: 'Línea Furgones',
     desc: 'Carrocerías cerradas herméticas para protección total de mercancías.',
-    longDesc: 'Diseño y fabricación de furgones metálicos para distribución logística urbana e interprovincial. Estructuras totalmente selladas que garantizan la seguridad de la carga contra la intemperie y robos, optimizados con deflectores de aire para reducir el consumo de combustible.',
+    longDesc: 'Diseño y fabricación de furgones metálicos para distribución logística urbana e interprovincial. Estructuras totalmente selladas que garantizan la seguridad de la carga contra la intemperie y robos.',
     images: [
       '/carrocerias-metálicas.webp',
       '/furgon-cerrado-hd-isuzu-fvr.webp',
       '/furgon-cerrado-madezza.webp',
       '/furgon-cerrado-rampa-elevadora.webp',
       '/furgon-comercial-metalico-ligero.webp',
-      '/furgon-con-cortaviento-aerodinamico.webp',
-     
       '/furgon-con-rampa-hidraulica-azul.webp',
-      '/furgon-cortaviento-plataforma-hidraulica.webp',
       '/furgon-heavy-duty-isuzu.webp',
       '/furgon-logistico-cat.webp',
       '/furgon-sin-panagra-heavy-duty.webp'
@@ -70,9 +30,9 @@ export const productLines = [
   {
     id: 'furgon-pollero',
     title: 'Furgón Pollero y Distribución Avícola',
-    macroCategory: 'Sobre Chasis',
+    macroCategory: 'Línea Furgones',
     desc: 'Carrocerías con enrejado metálico optimizadas para transporte de aves.',
-    longDesc: 'Estructuras ventiladas fabricadas especialmente para el sector avícola. Diseñadas para maximizar la capacidad de alojamiento de jabas de aves vivas, asegurando un flujo de aire constante para reducir la mortalidad en trayecto, combinando laterales de malla con cerramientos rígidos de seguridad.',
+    longDesc: 'Estructuras ventiladas fabricadas especialmente para el sector avícola. Diseñadas para maximizar la capacidad de alojamiento de jabas de aves vivas, asegurando un flujo de aire constante.',
     images: [
       '/baranda-avicola-herlinda.webp',
       '/carroceria-pollero-semirremolque-roja.webp',
@@ -87,27 +47,9 @@ export const productLines = [
     ]
   },
   {
-    id: 'volquetes',
-    title: 'Volquetes (Tolvas de Volteo)',
-    macroCategory: 'Sobre Chasis',
-    desc: 'Tolvas estructurales con sistemas hidráulicos para carga pesada.',
-    longDesc: 'Diseño de tolvas de volteo heavy duty para camiones de dos y tres ejes (tándem posterior). Construidas íntegramente con aceros de alta resistencia a la abrasión e impactos, ideales para el movimiento de tierras, agregados, minería y construcción civil.',
-    images: [
-      '/olva-volteo-amarillo-negro.webp',
-      '/olva-volteo-amarillo-negro (2).webp',
-      '/tolva-estructural-volteo-azul.webp'
-    ],
-    specs: [
-      'Fabricación en planchas de acero estructural de alto límite elástico',
-      'Sistema de izaje mediante cilindro hidráulico telescópico frontal',
-      'Visera frontal extendida para protección completa de la cabina',
-      'Compuerta posterior con apertura automática por gravedad'
-    ]
-  },
-  {
     id: 'furgones-refrigerados',
     title: 'Furgones Refrigerados e Isotérmicos',
-    macroCategory: 'Sobre Chasis',
+    macroCategory: 'Línea Furgones',
     desc: 'Carrocerías con aislamiento térmico para transporte de cadena de frío.',
     longDesc: 'Unidades herméticas aisladas estructuralmente para el traslado de productos perecederos, lácteos, carnes y medicinas. Mantienen la temperatura interna óptima reduciendo la transferencia de calor exterior.',
     images: [
@@ -121,11 +63,118 @@ export const productLines = [
     ]
   },
   {
+    id: 'ala-gaviota',
+    title: 'Furgones Tipo Ala de Gaviota',
+    macroCategory: 'Línea Furgones',
+    desc: 'Sistemas de apertura lateral hidráulica para carga y descarga express.',
+    longDesc: 'Modificación técnica avanzada de furgones donde las paredes laterales se elevan por completo de manera vertical mediante pistones hidráulicos. Ideal para operaciones logísticas masivas.',
+    images: [
+      '/camion-mercedes-benz-carroceria-ala-gaviota.webp'
+    ],
+    specs: [
+      'Apertura lateral mediante cilindros hidráulicos controlados',
+      'Estructura de paneles aligerados para no penalizar la carga útil',
+      'Sellado perimetral de alta estanqueidad contra filtraciones',
+      'Sistemas de bloqueo de seguridad mecánicos para viaje'
+    ]
+  },
+
+  // ==========================================
+  // 2. LÍNEA ABIERTAS Y BARANDAS
+  // ==========================================
+  {
+    id: 'carroceria-madera',
+    title: 'Carrocerías de Madera',
+    macroCategory: 'Línea Abiertas y Barandas',
+    desc: 'Distintos modelos de carrocerías de madera adaptadas a tu chasis.',
+    longDesc: 'Fabricamos carrocerías de madera con acabados de primera y distintos modelos según tus necesidades de carga. Diseños personalizados, artísticos y tradicionales con estructuras robustas.',
+    images: [
+      '/baranda-artistica-aerografia-compleja.webp',
+      '/baranda-artistica-caballo.webp',
+      '/baranda-artistica-caballo (2).webp',
+      '/baranda-madera-aerografia-personalizada.webp',
+      '/baranda-madera-con-canastilla.webp',
+      '/baranda-madera-expuesta-towner.webp',
+      '/baranda-madera-panagra-peru.webp',
+      '/baranda-madera-pintura-fenix.webp'
+    ],
+    specs: [
+      'Listones de madera selecta tratada contra la humedad y torsión',
+      'Estructura base en acero de alta resistencia (LAF / LAC)',
+      'Forro exterior opcional con aerografía artística',
+      'Canastillas superiores (copetes) integradas'
+    ]
+  },
+  {
+    id: 'baranda-telera',
+    title: 'Barandas Telera',
+    macroCategory: 'Línea Abiertas y Barandas',
+    desc: 'Barandas telera para transporte seguro y versátil.',
+    longDesc: 'Diseño y fabricación de barandas telera, ideales para el transporte de carga general, combinando resistencia metálica con la practicidad de la telera tradicional (con acabados en panagra).',
+    images: [
+      '/baranda-comercial-madera-panagra-roja.webp',
+      '/baranda-panagra-fija-isuzu.webp',
+      '/baranda-panagra-madera-fija-roja.webp',
+      '/baranda-madera-panagra-verde-isuzu.webp',
+      '/baranda-madera-panagra-verde-leon.webp',
+      '/baranda-bicolor-con-canastilla.webp',
+      '/baranda-blanca-sin-panagra.webp'
+    ],
+    specs: [
+      'Estructura resistente para trabajo pesado',
+      'Diseño tradicional de telera con forro de panagra',
+      'Acabados en pintura de poliuretano bicolor o entera',
+      'Fácil mantenimiento y alta durabilidad'
+    ]
+  },
+  {
+    id: 'barandas-metalicas',
+    title: 'Barandas Metálicas Comerciales',
+    macroCategory: 'Línea Abiertas y Barandas',
+    desc: 'Estructuras 100% metálicas de alta resistencia para trabajo pesado.',
+    longDesc: 'Diseño de barandas comerciales metálicas adaptadas a cualquier chasis. Estructuras rígidas y seguras con bases de acero estructural, ideales para transporte de carga pesada y utilitarios.',
+    images: [
+      '/baranda-comercial-blanca-canastilla.webp',
+      '/baranda-con-canastilla-ligera.webp',
+      '/baranda-metalica-abierta-utilitario.webp',
+      '/baranda-metalica-alta-canastilla.webp',
+      '/transporte-personal-bicolor.webp'
+    ],
+    specs: [
+      'Estructura 100% en acero de alta resistencia (LAF / LAC)',
+      'Sistema de compuertas rebatibles o fijas según requerimiento',
+      'Piso de acero estriado antideslizante',
+      'Pintura de poliuretano de alta resistencia a la corrosión'
+    ]
+  },
+
+  // ==========================================
+  // 3. LÍNEA PESADA (HEAVY DUTY)
+  // ==========================================
+  {
+    id: 'volquetes',
+    title: 'Volquetes (Tolvas de Volteo)',
+    macroCategory: 'Línea Pesada',
+    desc: 'Tolvas estructurales con sistemas hidráulicos para carga pesada.',
+    longDesc: 'Diseño de tolvas de volteo heavy duty para camiones de dos y tres ejes. Construidas íntegramente con aceros de alta resistencia a la abrasión e impactos, ideales para construcción y minería.',
+    images: [
+      '/olva-volteo-amarillo-negro.webp',
+      '/olva-volteo-amarillo-negro (2).webp',
+      '/tolva-estructural-volteo-azul.webp'
+    ],
+    specs: [
+      'Fabricación en planchas de acero estructural de alto límite elástico',
+      'Sistema de izaje mediante cilindro hidráulico telescópico frontal',
+      'Visera frontal extendida para protección completa de la cabina',
+      'Compuerta posterior con apertura automática por gravedad'
+    ]
+  },
+  {
     id: 'cisterna',
     title: 'Cisternas',
-    macroCategory: 'Sobre Chasis',
+    macroCategory: 'Línea Pesada',
     desc: 'Tanques cilíndricos o elípticos para el transporte de fluidos.',
-    longDesc: 'Unidades cisterna diseñadas para el transporte seguro de agua (regadío o consumo humano), combustibles o fluidos industriales, garantizando estabilidad y rompeolas internos reglamentarios.',
+    longDesc: 'Unidades cisterna diseñadas para el transporte seguro de agua, combustibles o fluidos industriales, garantizando estabilidad y rompeolas internos reglamentarios.',
     images: [
       '/camion-cisterna-agua-no-potable-hino.webp',
       '/camion-cisterna-combustible-hyundai-mighty.webp',
@@ -139,119 +188,63 @@ export const productLines = [
       'Sistema de descarga rápida con válvulas de bola industriales'
     ]
   },
-
-  // ==========================================
-  // --- MACRO-CATEGORÍA: SEMIRREMOLQUES ---
-  // ==========================================
   {
     id: 'plataformas',
     title: 'Plataformas y Portacontenedores',
-    macroCategory: 'Semirremolques',
+    macroCategory: 'Línea Pesada',
     desc: 'Estructuras rodantes de múltiples ejes para carga pesada y contenedores.',
-    longDesc: 'Semirremolques diseñados para el transporte de contenedores estandarizados de 20 y 40 pies, así como carga general sobredimensionada. Equipados con vigas principales robustas para soportar altas toneladas en carreteras nacionales.',
+    longDesc: 'Semirremolques diseñados para el transporte de contenedores estandarizados de 20 y 40 pies, así como carga general sobredimensionada.',
     images: [
       '/plataforma-carga-pesada-metalica.webp'
     ],
     specs: [
       'Vigas principales en perfil "I" de acero estructural de alta resistencia',
-      'Configuración de ejes en tándem o tridem (según capacidad de carga)',
+      'Configuración de ejes en tándem o tridem',
       'Pinzas de sujeción rápida (locks) para contenedores marinos',
       'Barandas perimetrales rebatibles de altura media'
     ]
   },
- // {
-   // id: 'cama-baja',
-  //  title: 'Semirremolques Tipo Cama Baja',
-  //  macroCategory: 'Semirremolques',
-    //desc: 'Unidades rebajadas para el transporte de maquinaria pesada.',
-  //  longDesc: 'Plataformas de baja altura diseñadas especialmente para el traslado seguro de maquinaria pesada amarilla (excavadoras, tractores, rodillos) optimizando el centro de gravedad y respetando los límites de altura en ruta.',
-  //  images: [],
-    //specs: [
-   //   'Cuello de ganso fijo o desmontable hidráulico',
-    //  'Plataforma de carga rebajada con piso de madera dura o metal estriado',
-   //   'Rampas de acceso posteriores de accionamiento manual o hidráulico',
-   //   'Ejes de alta capacidad con suspensión mecánica o neumática'
-   // ]
-  //},
 
   // ==========================================
-  // --- MACRO-CATEGORÍA: REMOLQUES ---
+  // 4. LÍNEA ESPECIALES Y ACCESORIOS
   // ==========================================
-  //{
-  //  id: 'remolques',
-  //  title: 'Remolques Especiales',
-   // macroCategory: 'Remolques',
-  //  desc: 'Unidades de enganche directo para ampliación de capacidad de carga.',
-   // longDesc: 'Unidades de remolque equilibradas para acoplar directamente a camiones rígidos, permitiendo duplicar el volumen logístico de transporte en una sola ruta de operación comercial.',
-   // images: [],
-   // specs: [
-   //   'Lanza de enganche reforzada con ojo de tracción homologado',
-   //   'Sistemas de frenos neumáticos integrados sincronizados',
-   //   'Configuraciones de ejes centrales o direccionales con tornamesa',
-      //'Carrocería superior configurable (baranda, furgón o plataforma)'
-    //]
-  //},
-
-  // ==========================================
-  // --- MACRO-CATEGORÍA: ACONDICIONAMIENTO ---
-  // ==========================================
-  {
-    id: 'ala-gaviota',
-    title: 'Furgones Tipo Ala de Gaviota',
-    macroCategory: 'Acondicionamiento',
-    desc: 'Sistemas de apertura lateral hidráulica para carga y descarga express.',
-    longDesc: 'Modificación técnica avanzada de furgones donde las paredes laterales se elevan por completo de manera vertical mediante pistones hidráulicos. Ideal para operaciones logísticas masivas que requieren acceso inmediato a palets.',
-    images: [
-        '/camion-mercedes-benz-carroceria-ala-gaviota.webp',
-      
-      
-    ],
-    specs: [
-      'Apertura lateral mediante cilindros hidráulicos controlados',
-      'Estructura de paneles aligerados para no penalizar la carga útil',
-      'Sellado perimetral de alta estanqueidad contra filtraciones',
-      'Sistemas de bloqueo de seguridad mecánicos para viaje'
-    ]
-  },
   {
     id: 'ambulancia',
     title: 'Conversiones y Ambulancias',
-    macroCategory: 'Acondicionamiento',
+    macroCategory: 'Línea Especiales y Accesorios',
     desc: 'Transformación integral de vehículos para atención médica y misiones especiales.',
-    longDesc: 'Acondicionamiento interno y externo de furgonetas o módulos sobre chasis para cumplir estrictamente con las normas de salud vigentes. Distribución ergonómica para el traslado y atención médica de pacientes.',
+    longDesc: 'Acondicionamiento interno y externo de furgonetas o módulos sobre chasis para cumplir estrictamente con las normas de salud vigentes.',
     images: [
       '/ambulancia-la industrial.webp',
       '/ambulancia-laindustrial.webp',
-      '/ambulancia.webp',
+      '/ambulancia.webp'
     ],
     specs: [
       'Aislamiento termo-acústico y revestimiento interior de fácil asepsia',
-      'Sistema eléctrico independiente con inversor de corriente y tomas de 220V/12V',
-      'Anclajes estructurales certificados para camillas y balones de oxígeno',
-      'Mobiliario médico integrado en materiales ligeros y lavables'
+      'Sistema eléctrico independiente con inversor de corriente',
+      'Anclajes estructurales certificados para camillas',
+      'Mobiliario médico integrado en materiales ligeros'
     ]
   },
-
   {
     id: 'deflectores',
     title: 'Deflectores Aerodinámicos (Cortavientos)',
-    macroCategory: 'Acondicionamiento',
-    desc: 'Estructuras en fibra de vidrio para reducir la resistencia al viento y optimizar combustible.',
-    longDesc: 'Fabricación e instalación de deflectores aerodinámicos (cortavientos) a medida para todo tipo de cabinas (Isuzu, Hino, etc.). Diseñados en fibra de vidrio de alta resistencia, estos accesorios reducen drásticamente la fricción del viento contra el furgón, optimizando el consumo de combustible y mejorando la presencia corporativa del vehículo.',
+    macroCategory: 'Línea Especiales y Accesorios',
+    desc: 'Estructuras en fibra de vidrio para reducir la resistencia al viento.',
+    longDesc: 'Fabricación e instalación de deflectores aerodinámicos a medida para todo tipo de cabinas. Diseñados en fibra de vidrio de alta resistencia, reducen la fricción del viento y optimizan el combustible.',
     images: [
       '/deflector-aerodinamico-cortaviento-azul.webp',
       '/deflector-aerodinamico-cortaviento.webp',
       '/deflector-aerodinamico-cortaviento-blanco.webp',
-      '/deflector-aerodinamico-cortaviento-rojo.webp'
+      '/deflector-aerodinamico-cortaviento-rojo.webp',
+      '/furgon-con-cortaviento-aerodinamico.webp',
+      '/furgon-cortaviento-plataforma-hidraulica.webp'
     ],
     specs: [
       'Fabricación en resina y fibra de vidrio (PRFV) de alta durabilidad',
       'Diseño aerodinámico adaptado a la curvatura original de cada cabina',
-      'Acabado en pintura de poliuretano horneable con colores corporativos',
-      'Instalación segura con soportes metálicos integrados al techo',
-      'Integración opcional de luces LED de señalización perimetral'
+      'Acabado en pintura de poliuretano horneable',
+      'Instalación segura con soportes metálicos integrados al techo'
     ]
   }
-
-  
 ];
