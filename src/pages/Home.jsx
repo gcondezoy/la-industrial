@@ -255,7 +255,7 @@ const Home = () => {
                 <div key={`${product.id}-${index}`} className="product-tall-card">
                   <img src={coverImg} alt={product.title} loading="lazy" />
                   <div className="card-overlay">
-                    <h3>{product.id.charAt(0).toUpperCase() + product.id.slice(1).replace('-', ' ')}</h3>
+                    <h3>{product.title}</h3>
                     <Link to={`/proyecto/${product.id}`} className="btn-outline" onDragStart={(e) => e.preventDefault()}>
                       VER DETALLES →
                     </Link>

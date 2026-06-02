@@ -4,7 +4,7 @@ export const productLines = [
   // ==========================================
   {
     id: 'furgones',
-    title: 'Furgones (Cerrados / Comerciales)',
+    title: 'Furgón con rampa elevadora',
     macroCategory: 'Línea Furgones',
     desc: 'Carrocerías cerradas herméticas para protección total de mercancías.',
     longDesc: 'Diseño y fabricación de furgones metálicos para distribución logística urbana e interprovincial. Estructuras totalmente selladas que garantizan la seguridad de la carga contra la intemperie y robos.',
@@ -29,7 +29,7 @@ export const productLines = [
   },
   {
     id: 'furgon-pollero',
-    title: 'Furgón Pollero y Distribución Avícola',
+    title: 'Baranda Acanalada',
     macroCategory: 'Línea Furgones',
     desc: 'Carrocerías con enrejado metálico optimizadas para transporte de aves.',
     longDesc: 'Estructuras ventiladas fabricadas especialmente para el sector avícola. Diseñadas para maximizar la capacidad de alojamiento de jabas de aves vivas, asegurando un flujo de aire constante.',
@@ -48,7 +48,7 @@ export const productLines = [
   },
   {
     id: 'furgones-refrigerados',
-    title: 'Furgones Refrigerados e Isotérmicos',
+    title: 'Cámara Frigorífica',
     macroCategory: 'Línea Furgones',
     desc: 'Carrocerías con aislamiento térmico para transporte de cadena de frío.',
     longDesc: 'Unidades herméticas aisladas estructuralmente para el traslado de productos perecederos, lácteos, carnes y medicinas. Mantienen la temperatura interna óptima reduciendo la transferencia de calor exterior.',
@@ -107,7 +107,7 @@ export const productLines = [
   },
   {
     id: 'baranda-telera',
-    title: 'Barandas Telera',
+    title: 'Baranda de Madera',
     macroCategory: 'Línea Abiertas y Barandas',
     desc: 'Barandas telera para transporte seguro y versátil.',
     longDesc: 'Diseño y fabricación de barandas telera, ideales para el transporte de carga general, combinando resistencia metálica con la practicidad de la telera tradicional (con acabados en panagra).',
@@ -129,7 +129,7 @@ export const productLines = [
   },
   {
     id: 'barandas-metalicas',
-    title: 'Barandas Metálicas Comerciales',
+    title: 'Baranda Semi Acanalada',
     macroCategory: 'Línea Abiertas y Barandas',
     desc: 'Estructuras 100% metálicas de alta resistencia para trabajo pesado.',
     longDesc: 'Diseño de barandas comerciales metálicas adaptadas a cualquier chasis. Estructuras rígidas y seguras con bases de acero estructural, ideales para transporte de carga pesada y utilitarios.',
@@ -211,7 +211,7 @@ export const productLines = [
   {
     id: 'ambulancia',
     title: 'Conversiones y Ambulancias',
-    macroCategory: 'Línea Especiales y Accesorios',
+    macroCategory: 'Especiales y Accesorios',
     desc: 'Transformación integral de vehículos para atención médica y misiones especiales.',
     longDesc: 'Acondicionamiento interno y externo de furgonetas o módulos sobre chasis para cumplir estrictamente con las normas de salud vigentes.',
     images: [
@@ -228,8 +228,8 @@ export const productLines = [
   },
   {
     id: 'deflectores',
-    title: 'Deflectores Aerodinámicos (Cortavientos)',
-    macroCategory: 'Línea Especiales y Accesorios',
+    title: 'Cortavientos',
+    macroCategory: 'Especiales y Accesorios',
     desc: 'Estructuras en fibra de vidrio para reducir la resistencia al viento.',
     longDesc: 'Fabricación e instalación de deflectores aerodinámicos a medida para todo tipo de cabinas. Diseñados en fibra de vidrio de alta resistencia, reducen la fricción del viento y optimizan el combustible.',
     images: [
