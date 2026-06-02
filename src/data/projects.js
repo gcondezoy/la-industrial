@@ -93,7 +93,7 @@ export const productLines = [
       '/baranda-artistica-caballo.webp',
       '/baranda-artistica-caballo (2).webp',
       '/baranda-madera-aerografia-personalizada.webp',
-      '/baranda-madera-con-canastilla.webp',
+      '/baranda-con-canastilla.webp',
       '/baranda-madera-expuesta-towner.webp',
       '/baranda-madera-panagra-peru.webp',
       '/baranda-madera-pintura-fenix.webp'
