@@ -4,7 +4,6 @@ import Footer from './components/Footer';
 import WhatsApp from './components/WhatsApp';
 import ScrollToTop from './components/ScrollToTop'; // <-- 1. Lo importas
 import Home from './pages/Home';
-import Nosotros from './pages/About';
 import Services from './pages/Services';
 import Portfolio from './pages/Portfolio';
 import Contact from './pages/Contact';

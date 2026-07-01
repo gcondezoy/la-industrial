@@ -29,7 +29,7 @@ export const productLines = [
   },
   {
     id: 'furgon-pollero',
-    title: 'Baranda Acanalada',
+    title: 'Furgón Pollero (Avícola)',
     macroCategory: 'Línea Furgones',
     desc: 'Carrocerías con enrejado metálico optimizadas para transporte de aves.',
     longDesc: 'Estructuras ventiladas fabricadas especialmente para el sector avícola. Diseñadas para maximizar la capacidad de alojamiento de jabas de aves vivas, asegurando un flujo de aire constante.',

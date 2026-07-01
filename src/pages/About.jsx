@@ -1,11 +1,17 @@
 import React from 'react';
 import './About.scss';
-import { Target, Lightbulb, Settings, Truck, Wrench } from 'lucide-react'; 
+import Seo from '../components/Seo';
+import { Target, Lightbulb, Settings, Truck, Wrench } from 'lucide-react';
 
 const About = () => {
   return (
     <div className="about-page">
-      
+      <Seo
+        title="Nosotros | Fabricantes de Carrocerías con más de 40 años - La Industrial S.A.C."
+        description="Más de 40 años fabricando carrocerías en metal y madera para transporte pesado en el Perú. Conoce nuestra misión, visión e ingeniería de precisión."
+        path="/nosotros"
+      />
+
       {/* 1. CABECERA DIVIDIDA (OPCIÓN 2) */}
       <section className="about-header-split">
         <div className="container">
@@ -23,9 +29,9 @@ const About = () => {
             </div>
             
             <div className="split-image">
-              <img 
-                src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=800&q=80" 
-                alt="Carrocerías La Industrial" 
+              <img
+                src="/furgon-heavy-duty-isuzu.webp"
+                alt="Carrocerías La Industrial"
               />
             </div>
 

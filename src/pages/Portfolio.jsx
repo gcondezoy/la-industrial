@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { productLines } from '../data/projects.js';
+import Seo from '../components/Seo';
 import './Portfolio.scss';
 
 const Portfolio = () => {
@@ -22,6 +23,11 @@ const Portfolio = () => {
 
   return (
     <div className="portfolio-section">
+      <Seo
+        title="Catálogo de Carrocerías: Furgones, Barandas, Tolvas y Cisternas | La Industrial"
+        description="Conoce nuestras líneas de fabricación: furgones metálicos, barandas de madera, tolvas de volteo, cisternas, plataformas y unidades especiales. Fabricación a medida en Lima, Perú."
+        path="/proyectos"
+      />
       <div className="container">
         <h2>Líneas de Fabricación</h2>
         

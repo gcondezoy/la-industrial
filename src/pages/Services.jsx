@@ -1,15 +1,20 @@
 import React from 'react';
+import Seo from '../components/Seo';
 import './Services.scss';
 
 const Services = () => {
   return (
     <div className="services-page">
+      <Seo
+        title="Servicios | Fabricación de Carrocerías, Furgones, Tolvas y Arenado - La Industrial"
+        description="Fabricación a medida de carrocerías metálicas y de madera, furgones, tolvas, arenado (sandblasting), pintura epóxica y reparación estructural en Lima, Perú."
+        path="/servicios"
+      />
       {/* Hero Section */}
       <section className="services-hero">
-        // En tu archivo Services.jsx, cambia la imagen a esta:
-          <img 
-            src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1920&q=80" 
-            alt="Soldadura y Fabricación de Carrocerías" 
+          <img
+            src="/taller-alargamiento-chasis-camiones.webp"
+            alt="Soldadura y Fabricación de Carrocerías"
             className="services-hero__bg"
           />
         <div className="services-hero__overlay"></div>
@@ -34,7 +39,7 @@ const Services = () => {
               
               <div className="catalog-card">
                 <div className="card-img-wrap">
-                  <img src="/carrocerias-metálicas.webp" alt="Car rocerías Metálicas Robustas" />
+                  <img src="/carrocerias-metálicas.webp" alt="Carrocerías Metálicas Robustas" />
                 </div>
                 <div className="card-content">
                   <h3>Carrocerías Metálicas</h3>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { productLines } from '../data/projects.js';
+import Seo from '../components/Seo';
 import './ProjectDetail.scss';
 
 const ProjectDetail = () => {
@@ -28,6 +29,12 @@ const ProjectDetail = () => {
 
   return (
     <div className="project-detail-container">
+      <Seo
+        title={`${line.title} | Carrocerías La Industrial S.A.C.`}
+        description={`${line.desc} Fabricación a medida en Lima, Perú. Cotiza por WhatsApp con La Industrial S.A.C.`}
+        path={`/proyecto/${line.id}`}
+        image={line.images && line.images.length > 0 ? line.images[0] : '/logo.webp'}
+      />
       <div className="container">
         <button onClick={() => navigate(-1)} className="back-link">
           ← Volver al Catálogo
@@ -78,7 +85,7 @@ const ProjectDetail = () => {
             <div className="cta-box">
               <p>¿Deseas solicitar una cotización formal o plano técnico para esta línea?</p>
               <a 
-                href={`https://wa.me/TU_NUMERO_DE_WHATSAPP?text=Hola,%20solicito%20cotización%20e%20información%20técnica%20sobre%20la%20línea%20de:%20${encodeURIComponent(line.title)}`} 
+                href={`https://wa.me/51932528794?text=Hola,%20solicito%20cotización%20e%20información%20técnica%20sobre%20la%20línea%20de:%20${encodeURIComponent(line.title)}`}
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="whatsapp-btn"

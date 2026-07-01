@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaClock } from 'react-icons/fa';
+import Seo from '../components/Seo';
 import './Contact.scss';
 
 const Contacto = () => {
@@ -25,12 +26,17 @@ const Contacto = () => {
 
   return (
     <div className="contact-page">
-      
+      <Seo
+        title="Contacto y Cotización | Carrocerías La Industrial S.A.C. - Puente Piedra, Lima"
+        description="Cotiza tu carrocería o furgón. Planta en Puente Piedra, Lima - Perú. Escríbenos por WhatsApp al +51 932 528 794 o al correo Laindustrialeirl@gmail.com."
+        path="/contacto"
+      />
+
       {/* 1. HERO DE CONTACTO */}
       <header className="contact-hero">
-        <img 
-          src="https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=1920&q=80" 
-          alt="Contacto La Industrial SAC" 
+        <img
+          src="/camion-plataforma-metalica-azul.webp"
+          alt="Contacto La Industrial SAC"
           className="contact-hero__bg"
         />
         <div className="contact-hero__overlay"></div>

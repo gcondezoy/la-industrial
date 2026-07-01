@@ -2,11 +2,31 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, ShieldCheck, Clock, Award } from 'lucide-react';
 import { productLines } from '../data/projects.js';
+import Seo from '../components/Seo';
 import './Home.scss';
 
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  
+
+  // Estado del formulario de cotización rápida
+  const [formData, setFormData] = useState({ nombre: '', email: '', telefono: '', ruc: '', producto: '' });
+
+  const handleFormChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleQuoteSubmit = (e) => {
+    e.preventDefault();
+    const mensaje =
+      `Hola, solicito una cotización.\n\n` +
+      `Nombre: ${formData.nombre}\n` +
+      `Correo: ${formData.email}\n` +
+      `Teléfono: ${formData.telefono}\n` +
+      `Razón social / RUC: ${formData.ruc}\n` +
+      `Producto en consulta: ${formData.producto}`;
+    window.open(`https://wa.me/51932528794?text=${encodeURIComponent(mensaje)}`, '_blank', 'noopener,noreferrer');
+  };
+
   const productsRef = useRef(null);
   const brandsRef = useRef(null);
   
@@ -17,12 +37,12 @@ const Home = () => {
     {
       title: "FABRICACIÓN DE CARROCERÍAS METÁLICAS",
       desc: "Conoce todos nuestros modelos y elige la que más se adecue a tu negocio.",
-      img: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1920&q=80"
+      img: "/fabricacion-carroceria-camion-diseno-azul.webp"
     },
     {
       title: "CARROCERÍAS PARA TODAS LAS INDUSTRIAS",
       desc: "¡Solicita tu cotización ya!",
-      img: "https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=1920&q=80"
+      img: "/camion-mercedes-benz-carroceria-ala-gaviota.webp"
     }
   ];
 
@@ -135,7 +155,12 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      
+      <Seo
+        title="Carrocerías La Industrial S.A.C. | Fabricación de Carrocerías Metálicas y Furgones en Lima, Perú"
+        description="Fabricantes de carrocerías metálicas y de madera para transporte pesado: furgones, barandas, tolvas, cisternas y plataformas. Cotiza tu carrocería en Puente Piedra, Lima - Perú."
+        path="/"
+      />
+
       {/* 1. HERO SLIDER */}
       <section className="hero-slider">
         {heroSlides.map((slide, index) => (
@@ -314,16 +339,16 @@ const Home = () => {
             <img src="/baranda-comercial-blanca-canastilla.webp" alt="Cotización de carrocería" /> 
           </div>
           <div className="contact-form-wrapper slide-in-right">
-            <form className="quote-form">
+            <form className="quote-form" onSubmit={handleQuoteSubmit}>
               <div className="form-row">
-                <input type="text" placeholder="Nombre" required />
-                <input type="email" placeholder="Correo electrónico" required />
+                <input type="text" name="nombre" placeholder="Nombre" value={formData.nombre} onChange={handleFormChange} required />
+                <input type="email" name="email" placeholder="Correo electrónico" value={formData.email} onChange={handleFormChange} required />
               </div>
               <div className="form-row">
-                <input type="tel" placeholder="Teléfono" required />
-                <input type="text" placeholder="Razón social o RUC" required />
+                <input type="tel" name="telefono" placeholder="Teléfono" value={formData.telefono} onChange={handleFormChange} required />
+                <input type="text" name="ruc" placeholder="Razón social o RUC" value={formData.ruc} onChange={handleFormChange} required />
               </div>
-              <textarea placeholder="Producto en consulta" rows="4" required></textarea>
+              <textarea name="producto" placeholder="Producto en consulta" rows="4" value={formData.producto} onChange={handleFormChange} required></textarea>
               <button type="submit" className="btn-submit">Solicitar cotización</button>
             </form>
             <hr className="divider" />
