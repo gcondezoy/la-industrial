@@ -172,7 +172,7 @@ const Contacto = () => {
             <div className="map-wrapper">
               <iframe
                 title="Mapa de ubicación La Industrial"
-                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3807.518258450575!2d-77.0694503249412!3d-11.897834388327478!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTHCsDUzJzUyLjIiUyA3N8KwMDQnMDAuOCJX!5e1!3m2!1ses!2spe!4v1779825648455!5m2!1ses!2spe"
+                src="https://maps.google.com/maps?q=-11.8979169,-77.0669129&z=17&hl=es&output=embed"
                 width="100%"
                 height="450"
                 style={{ border: 0 }}
