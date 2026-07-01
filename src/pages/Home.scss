@@ -277,13 +277,19 @@ $white: #ffffff;
   user-select: none; 
   -webkit-overflow-scrolling: touch; // Da el deslizamiento natural y continuo en celulares
   
-  -ms-overflow-style: none;  
-  scrollbar-width: none;  
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   &::-webkit-scrollbar { display: none; }
+
+  // En móvil las flechas están ocultas: reducimos el relleno lateral para
+  // que las tarjetas queden alineadas con el resto de la página.
+  @media (max-width: 768px) {
+    padding: 10px 1.25rem;
+  }
 
   &.dragging {
     cursor: grabbing;
-    .product-tall-card { pointer-events: none; } 
+    .product-tall-card { pointer-events: none; }
   }
 }
 

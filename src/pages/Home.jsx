@@ -88,24 +88,28 @@ const Home = () => {
     return () => hiddenElements.forEach((el) => observer.unobserve(el));
   }, []);
 
-  // 3. Motor de Autoplay lento para Sliders
+  // 3. Motor de Autoplay lento para Sliders (bucle continuo sin saltos)
   useEffect(() => {
+    // La lista está triplicada. Al pasar el segundo tercio, retrocedemos
+    // exactamente el ancho de una copia. Como el contenido es idéntico, el
+    // salto es invisible y el carrusel nunca se "desfasa" ni pega tirones.
+    const step = (ref) => {
+      const el = ref.current;
+      if (!el || el.children.length < 3) return;
+      el.scrollLeft += 1;
+      const primeraCopia = Math.floor(el.children.length / 3);
+      const anchoCopia = el.children[primeraCopia].offsetLeft - el.children[0].offsetLeft;
+      if (anchoCopia > 0 && el.scrollLeft >= anchoCopia * 2) {
+        el.scrollLeft -= anchoCopia;
+      }
+    };
+
     const autoScroll = setInterval(() => {
       if (!dragProps.current.isDown && !dragProps.current.isHovering) {
-        if (productsRef.current) {
-          productsRef.current.scrollLeft += 1; 
-          if (productsRef.current.scrollLeft >= productsRef.current.scrollWidth - productsRef.current.clientWidth - 1) {
-            productsRef.current.scrollLeft = 0;
-          }
-        }
-        if (brandsRef.current) {
-          brandsRef.current.scrollLeft += 1;
-          if (brandsRef.current.scrollLeft >= brandsRef.current.scrollWidth - brandsRef.current.clientWidth - 1) {
-            brandsRef.current.scrollLeft = 0;
-          }
-        }
+        step(productsRef);
+        step(brandsRef);
       }
-    }, 30); 
+    }, 30);
 
     return () => clearInterval(autoScroll);
   }, []);
