@@ -61,12 +61,17 @@ $white: #ffffff;
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center 30%; // empuja la marca de agua superior fuera de vista
     }
 
     .slide-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 100%);
+      // Velo con el azul de marca que cubre TODO el hero: unifica la imagen,
+      // da contraste al texto y disimula el fondo gris y la marca de agua.
+      background:
+        linear-gradient(105deg, rgba(10,20,40,0.94) 0%, rgba(10,20,40,0.80) 45%, rgba(10,20,40,0.62) 100%),
+        linear-gradient(to top, rgba(10,20,40,0.5) 0%, rgba(10,20,40,0) 40%);
     }
 
     .slide-content {
