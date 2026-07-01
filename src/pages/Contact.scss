@@ -211,6 +211,34 @@
               transform: translateY(-3px);
               box-shadow: 0 8px 25px rgba(241, 90, 36, 0.4);
             }
+
+            &:disabled {
+              opacity: 0.7;
+              cursor: not-allowed;
+              transform: none;
+              box-shadow: none;
+            }
+          }
+
+          .form-feedback {
+            margin-top: 1rem;
+            padding: 0.9rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-align: center;
+
+            &.success {
+              background-color: #e7f7ec;
+              color: #1e7e46;
+              border: 1px solid #b7e4c7;
+            }
+
+            &.error {
+              background-color: #fdecea;
+              color: #b42318;
+              border: 1px solid #f5c2c0;
+            }
           }
         }
       } // Fin .contact-grid

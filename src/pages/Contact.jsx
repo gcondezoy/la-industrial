@@ -14,14 +14,45 @@ const Contacto = () => {
     mensaje: ''
   });
 
+  // Estado del envío: null | 'sending' | 'success' | 'error'
+  const [status, setStatus] = useState(null);
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Datos enviados:", formData);
-    alert("¡Mensaje enviado con éxito! Nos contactaremos contigo pronto.");
+    setStatus('sending');
+
+    const payload = {
+      access_key: 'a7adc542-d509-45c9-96aa-781207847421',
+      subject: `Nueva cotización web — ${formData.nombre || 'Sin nombre'}`,
+      from_name: 'Web Carrocerías La Industrial',
+      Nombre: formData.nombre,
+      RUC: formData.ruc,
+      Teléfono: formData.telefono,
+      Correo: formData.email,
+      'Tipo de carrocería': formData.servicio,
+      Detalles: formData.mensaje || '(sin detalles)'
+    };
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      const data = await res.json();
+      if (data.success) {
+        setStatus('success');
+        setFormData({ nombre: '', ruc: '', email: '', telefono: '', servicio: '', mensaje: '' });
+      } else {
+        setStatus('error');
+      }
+    } catch (err) {
+      setStatus('error');
+    }
   };
 
   return (
@@ -116,28 +147,28 @@ const Contacto = () => {
                   {/* ... (Todo tu formulario se mantiene exactamente igual) ... */}
                   <div className="form-group">
                     <label>Nombre o Razón Social</label>
-                    <input type="text" name="nombre" placeholder="Ej. Transportes del Norte S.A.C." required onChange={handleChange} />
+                    <input type="text" name="nombre" placeholder="Ej. Transportes del Norte S.A.C." required value={formData.nombre} onChange={handleChange} />
                   </div>
 
                   <div className="form-row">
                     <div className="form-group">
                       <label>Número de RUC</label>
-                      <input type="text" name="ruc" placeholder="Ej: 20123456789" required onChange={handleChange} />
+                      <input type="text" name="ruc" placeholder="Ej: 20123456789" required value={formData.ruc} onChange={handleChange} />
                     </div>
                     <div className="form-group">
                       <label>Teléfono / Celular</label>
-                      <input type="tel" name="telefono" placeholder="+51 999 999 999" required onChange={handleChange} />
+                      <input type="tel" name="telefono" placeholder="+51 999 999 999" required value={formData.telefono} onChange={handleChange} />
                     </div>
                   </div>
 
                   <div className="form-group">
                     <label>Correo Electrónico</label>
-                    <input type="email" name="email" placeholder="correo@empresa.com" required onChange={handleChange} />
+                    <input type="email" name="email" placeholder="correo@empresa.com" required value={formData.email} onChange={handleChange} />
                   </div>
 
                   <div className="form-group">
                     <label>Tipo de Carrocería requerida</label>
-                    <select name="servicio" required onChange={handleChange}>
+                    <select name="servicio" required value={formData.servicio} onChange={handleChange}>
                       <option value="">Selecciona una estructura...</option>
                       <option value="furgon">Furgón Comercial Metálico</option>
                       <option value="plataforma">Plataformas y Remolques</option>
@@ -149,12 +180,23 @@ const Contacto = () => {
 
                   <div className="form-group">
                     <label>Marca, Modelo y Detalles (Opcional)</label>
-                    <textarea name="mensaje" rows="4" placeholder="Ej: Necesito un furgón para un chasis Hino Serie 300, cama larga..." onChange={handleChange}></textarea>
+                    <textarea name="mensaje" rows="4" placeholder="Ej: Necesito un furgón para un chasis Hino Serie 300, cama larga..." value={formData.mensaje} onChange={handleChange}></textarea>
                   </div>
 
-                  <button type="submit" className="btn-submit-form">
-                    Solicitar Presupuesto
+                  <button type="submit" className="btn-submit-form" disabled={status === 'sending'}>
+                    {status === 'sending' ? 'Enviando…' : 'Solicitar Presupuesto'}
                   </button>
+
+                  {status === 'success' && (
+                    <p className="form-feedback success">
+                      ✅ ¡Mensaje enviado! Nos contactaremos contigo pronto.
+                    </p>
+                  )}
+                  {status === 'error' && (
+                    <p className="form-feedback error">
+                      ❌ Hubo un problema al enviar. Escríbenos por WhatsApp al +51 932 528 794.
+                    </p>
+                  )}
                 </form>
               </div>
             </motion.div>
