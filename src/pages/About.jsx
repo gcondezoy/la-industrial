@@ -30,8 +30,8 @@ const About = () => {
             
             <div className="split-image">
               <img
-                src="/furgon-heavy-duty-isuzu.webp"
-                alt="Carrocerías La Industrial"
+                src="/taller-nosotros.webp"
+                alt="Taller de fabricación de carrocerías La Industrial en plena producción"
               />
             </div>
 
