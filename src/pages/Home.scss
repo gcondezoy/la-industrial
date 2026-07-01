@@ -309,9 +309,11 @@ $white: #ffffff;
   }
 
   .product-tall-card {
-    min-width: 250px; 
-    flex: 0 0 auto;
-    height: 320px;    
+    // Ancho FIJO: sin esto la imagen infla la tarjeta más allá del ancho
+    // del celular y se ve cortada/desfasada.
+    flex: 0 0 250px;
+    width: 250px;
+    height: 320px;
     border-radius: 15px;
     overflow: hidden;
     position: relative;
@@ -320,9 +322,10 @@ $white: #ffffff;
     border: 1px solid #e2e8f0;
     transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
 
-    @media (min-width: 768px) { 
-      min-width: 280px; 
-      height: 360px;    
+    @media (min-width: 768px) {
+      flex-basis: 280px;
+      width: 280px;
+      height: 360px;
     }
 
     img {
