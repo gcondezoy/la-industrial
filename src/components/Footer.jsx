@@ -1,8 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 // Agrega FaTiktok a tu lista de importaciones
-import { FaFacebookF, FaInstagram, FaTiktok } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram, FaTiktok, FaWhatsapp } from 'react-icons/fa';
 import './Footer.scss';
+
+// Números de contacto: cada uno abre WhatsApp con un mensaje ya escrito
+const telefonos = [
+  { texto: '+51 932 528 794', wa: '51932528794' },
+  { texto: '+51 952 897 113', wa: '51952897113' },
+  { texto: '+51 942 138 008', wa: '51942138008' }
+];
+
+const mensajeWhatsApp = encodeURIComponent(
+  'Hola, vi su página web y estoy interesado en sus carrocerías. ¿Me pueden brindar más información?'
+);
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -38,8 +49,18 @@ const Footer = () => {
             <h3>Contáctanos</h3>
             <p>Distrito de Puente Piedra, Lima - Perú</p>
             <p><a href="mailto:ventas1@carroceriaslaindustrial.com.pe" className="email">ventas1@<wbr />carroceriaslaindustrial.com.pe</a></p>
-            <p className="phone">+51 952 897 113</p>
-            <p className="phone">+51 942 138 008</p>
+            {telefonos.map((tel) => (
+              <p className="phone" key={tel.wa}>
+                <a
+                  href={`https://wa.me/${tel.wa}?text=${mensajeWhatsApp}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Escribir por WhatsApp al ${tel.texto}`}
+                >
+                  <FaWhatsapp className="wa-icon" /> {tel.texto}
+                </a>
+              </p>
+            ))}
           </div>
 
           {/* Columna 4: Redes Sociales */}
