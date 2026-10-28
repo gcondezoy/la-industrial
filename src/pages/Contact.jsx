@@ -59,7 +59,7 @@ const Contacto = () => {
     <div className="contact-page">
       <Seo
         title="Contacto y Cotización | Carrocerías La Industrial S.A.C. - Puente Piedra, Lima"
-        description="Cotiza tu carrocería o furgón. Planta en Puente Piedra, Lima - Perú. Escríbenos por WhatsApp al +51 932 528 794 o al correo Laindustrialeirl@gmail.com."
+        description="Cotiza tu carrocería o furgón. Planta en Puente Piedra, Lima - Perú. Escríbenos por WhatsApp al +51 932 528 794 o al correo ventas1@carroceriaslaindustrial.com.pe."
         path="/contacto"
       />
 
@@ -120,7 +120,7 @@ const Contacto = () => {
                   <div className="icon-box"><FaEnvelope /></div>
                   <div>
                     <h3>Correo Corporativo</h3>
-                    <p>Laindustrialeirl@gmail.com</p>
+                    <p><a href="mailto:ventas1@carroceriaslaindustrial.com.pe" style={{ color: 'inherit', overflowWrap: 'anywhere' }}>ventas1@<wbr />carroceriaslaindustrial.com.pe</a></p>
                   </div>
                 </div>
 

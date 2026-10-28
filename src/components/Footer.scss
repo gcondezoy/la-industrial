@@ -91,10 +91,18 @@ $transition: all 0.3s ease;
 
   // Columna Contacto
   &__contact p {
-    font-size: 0.95rem; 
-    margin-bottom: 0.8rem; 
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
     line-height: 1.6;
-    
+    overflow-wrap: anywhere; // el correo es largo: que parta línea en vez de desbordarse
+
+    .email {
+      color: inherit;
+      text-decoration: none;
+      transition: $transition;
+      &:hover { color: $secondary; }
+    }
+
     &.phone { 
       color: #fff; 
       font-weight: 700; 
