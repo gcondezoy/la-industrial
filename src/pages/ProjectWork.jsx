@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { productLines } from '../data/projects.js';
 import Seo from '../components/Seo';
@@ -9,9 +9,22 @@ import './ProjectDetail.scss';
 const ProjectWork = () => {
   const { id, workId } = useParams();
   const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedVideo, setSelectedVideo] = useState(null);
 
   const line = productLines.find((p) => p.id === id);
   const work = line?.projects?.find((w) => w.id === workId);
+
+  // Esc cierra la foto o el video ampliado
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === 'Escape') {
+        setSelectedImage(null);
+        setSelectedVideo(null);
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
 
   if (!line || !work) {
     return (
@@ -56,15 +69,16 @@ const ProjectWork = () => {
                 <h2 className="media-subtitle">Videos del proyecto</h2>
                 <div className="videos-grid">
                   {work.videos.map((video, idx) => (
-                    <video
+                    <button
                       key={idx}
-                      src={video.src}
-                      poster={video.poster}
-                      controls
-                      playsInline
-                      preload="none"
-                      className="project-video"
-                    />
+                      type="button"
+                      className="video-thumb"
+                      onClick={() => setSelectedVideo(video)}
+                      aria-label={`Ver video ${idx + 1} del proyecto en grande`}
+                    >
+                      <img src={video.poster} alt="" loading="lazy" />
+                      <span className="play-icon" aria-hidden="true">▶</span>
+                    </button>
                   ))}
                 </div>
               </>
@@ -113,6 +127,22 @@ const ProjectWork = () => {
         <div className="lightbox-overlay" onClick={() => setSelectedImage(null)}>
           <span className="lightbox-close">&times;</span>
           <img src={selectedImage} alt={`Ampliación - ${work.title}`} className="lightbox-image" />
+        </div>
+      )}
+
+      {/* Video en grande: se cierra con la X, clic afuera o Esc */}
+      {selectedVideo && (
+        <div className="lightbox-overlay" onClick={() => setSelectedVideo(null)}>
+          <span className="lightbox-close">&times;</span>
+          <video
+            src={selectedVideo.src}
+            poster={selectedVideo.poster}
+            controls
+            autoPlay
+            playsInline
+            className="lightbox-video"
+            onClick={(e) => e.stopPropagation()}
+          />
         </div>
       )}
     </div>

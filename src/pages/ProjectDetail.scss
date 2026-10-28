@@ -162,13 +162,51 @@ $whatsapp-green: #25d366;
       grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
       gap: 15px;
 
-      .project-video {
+      // Miniatura: portada + botón play; al hacer clic el video se abre en grande
+      .video-thumb {
+        position: relative;
         width: 100%;
         aspect-ratio: 9 / 16; // videos grabados en vertical con el celular
-        object-fit: cover;
+        padding: 0;
+        border: none;
         border-radius: 8px;
+        overflow: hidden;
         background: #000;
-        display: block;
+        cursor: pointer;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .play-icon {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 54px;
+          height: 54px;
+          border-radius: 50%;
+          background: rgba(0, 0, 0, 0.6);
+          border: 2px solid #fff;
+          color: #fff;
+          font-size: 1.3rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding-left: 4px; // centra ópticamente el triángulo
+          transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        &:hover {
+          img { transform: scale(1.04); opacity: 0.85; }
+          .play-icon { background: $accent-color; transform: translate(-50%, -50%) scale(1.1); }
+        }
+
+        &:focus-visible { outline: 3px solid $accent-color; outline-offset: 2px; }
       }
     }
   }
@@ -304,6 +342,16 @@ $whatsapp-green: #25d366;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     object-fit: contain; // Mantiene la foto sin cortes
     animation: zoomIn 0.3s ease; // Animación de entrada fluida
+  }
+
+  .lightbox-video {
+    max-width: 90vw;
+    max-height: 88vh;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    background: #000;
+    cursor: auto;
+    animation: zoomIn 0.3s ease;
   }
 }
 
