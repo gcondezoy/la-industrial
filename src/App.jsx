@@ -9,6 +9,7 @@ import Portfolio from './pages/Portfolio';
 import Contact from './pages/Contact';
 import About from './pages/About';
 import ProjectDetail from './pages/ProjectDetail'; // (O la ruta donde lo hayas guardado)
+import ProjectWork from './pages/ProjectWork';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/proyectos" element={<Portfolio />} />
           <Route path="/contacto" element={<Contact />} />
           <Route path="/proyecto/:id" element={<ProjectDetail />} />
+          <Route path="/proyecto/:id/:workId" element={<ProjectWork />} />
         </Routes>
       </main>
       <WhatsApp />

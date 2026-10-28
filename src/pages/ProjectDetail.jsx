@@ -61,6 +61,30 @@ const ProjectDetail = () => {
                 <p>Próximamente fotos de proyectos en esta línea en nuestras rutas.</p>
               </div>
             )}
+
+            {/* Proyectos realizados: cada uno abre su propia página con fotos y videos */}
+            {line.projects?.length > 0 && (
+              <div className="works-section">
+                <h2>Proyectos realizados</h2>
+                <div className="works-grid">
+                  {line.projects.map((work) => (
+                    <Link key={work.id} to={`/proyecto/${line.id}/${work.id}`} className="work-card">
+                      <div className="work-cover">
+                        <img src={work.images[0]} alt={work.title} loading="lazy" />
+                        <span className="work-badge">
+                          {work.images.length} fotos{work.videos?.length > 0 && ` · ${work.videos.length} videos`}
+                        </span>
+                      </div>
+                      <div className="work-info">
+                        <h3>{work.title}</h3>
+                        <p>{work.desc}</p>
+                        <span className="work-more">Ver fotos y videos →</span>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Columna Derecha: Información Técnica */}

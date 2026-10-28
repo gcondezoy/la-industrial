@@ -167,6 +167,38 @@ export const productLines = [
       'Sistema de izaje mediante cilindro hidráulico telescópico frontal',
       'Visera frontal extendida para protección completa de la cabina',
       'Compuerta posterior con apertura automática por gravedad'
+    ],
+    // Trabajos específicos de esta línea: cada uno tiene su propia página
+    // (/proyecto/volquetes/<id>) con todas sus fotos y videos
+    projects: [
+      {
+        id: 'modificacion-volquete-17m3',
+        title: 'Modificación de Volquete 17 m³',
+        desc: 'Puerta basculante a dos hojas para doble función.',
+        longDesc: 'Modificación de volquete de 17 m³ realizada en nuestro taller. Se instaló una puerta posterior basculante a dos hojas, diseñada para cumplir doble función y adaptarse a las distintas maniobras de descarga del cliente.',
+        specs: [
+          'Capacidad de tolva: 17 m³',
+          'Puerta posterior basculante a dos hojas',
+          'Doble función de apertura según la maniobra de descarga',
+          'Trabajo de modificación realizado en nuestro taller'
+        ],
+        images: [
+          '/volquete-17m3-shacman-lateral.webp',
+          '/volquete-17m3-shacman-taller.webp',
+          '/volquete-17m3-shacman-posterior.webp',
+          '/volquete-17m3-puerta-dos-hojas-1.webp',
+          '/volquete-17m3-puerta-dos-hojas-2.webp',
+          '/volquete-17m3-puerta-dos-hojas-3.webp',
+          '/volquete-17m3-puerta-dos-hojas-4.webp',
+          '/volquete-17m3-interior-tolva.webp'
+        ],
+        videos: [
+          { src: '/videos/volquete-17m3-video-1.mp4', poster: '/videos/volquete-17m3-video-1-poster.webp' },
+          { src: '/videos/volquete-17m3-video-2.mp4', poster: '/videos/volquete-17m3-video-2-poster.webp' },
+          { src: '/videos/volquete-17m3-video-3.mp4', poster: '/videos/volquete-17m3-video-3-poster.webp' },
+          { src: '/videos/volquete-17m3-video-4.mp4', poster: '/videos/volquete-17m3-video-4-poster.webp' }
+        ]
+      }
     ]
   },
   {
