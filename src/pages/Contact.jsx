@@ -112,7 +112,11 @@ const Contacto = () => {
                   <div className="icon-box"><FaPhoneAlt /></div>
                   <div>
                     <h3>Teléfonos Directos</h3>
-                    <p>+51 932 528 794 (Ventas)<br />+51 942 138 008 (Soporte)<br />+51 952 897 113 (Soporte)</p>
+                    <p>
+                      <a href="tel:+51932528794" className="tel-link">+51 932 528 794</a> (Ventas)<br />
+                      <a href="tel:+51942138008" className="tel-link">+51 942 138 008</a> (Soporte)<br />
+                      <a href="tel:+51952897113" className="tel-link">+51 952 897 113</a> (Soporte)
+                    </p>
                   </div>
                 </div>
 
